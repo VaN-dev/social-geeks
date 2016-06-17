@@ -1,0 +1,88 @@
+body {
+  background: #f4f4f4;
+}
+.container {
+  width: auto;
+  position: relative;
+}
+
+.navbar {
+  background: #2b3d4c;
+  border-bottom: 1px solid #1e2a35;
+  padding-left: 0;
+  padding-right: 0;
+  box-shadow: 1px 0 6px 0 rgba(0, 0, 0, 0.6)
+}
+.navbar > .container .navbar-brand {
+  background: #1e2a35;
+  margin-left: -15px;
+  margin-right: 15px;
+  padding: 9px 0 9px 15px;
+  width: 216px;
+  float: left;
+  line-height: 28px;
+}
+.navbar > .container .navbar-brand img {
+  float: left;
+}
+.navbar > .container .navbar-brand span {
+  padding: 0 0 0 10px;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  background: #1e2a35;
+}
+
+.cl-sidebar {
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15)
+}
+.cl-vnavigation {
+  border: none;
+}
+.cl-vnavigation li a {
+  color: #666;
+  text-shadow: none;
+  border: none;
+}
+.cl-vnavigation li a:hover {
+  color: #666;
+  background: #f4f4f4;
+}
+
+.page-head {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.cl-mcont {
+  background: none;
+}
+
+.block-flat {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 0;
+}
+.block-flat .header, .block-flat .content {
+  padding: 20px;
+}
+.block-flat .title {
+  display: inline-block;
+}
+.block-flat .title::after {
+  background: #6685a4 none repeat scroll 0 0;
+  bottom: -21px;
+  content: "";
+  display: block;
+  height: 1px;
+  margin: 0 -35px 0 0;
+  padding: 0;
+  position: relative;
+  width: auto;
+  z-index: 100;
+}
+
+
+.portlet-boxed .portlet-header + .portlet-body {
+
+}

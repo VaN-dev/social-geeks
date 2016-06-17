@@ -1,0 +1,10 @@
+services:
+    van_security.password_encoder:
+        class: Van\SecurityBundle\Service\PasswordEncoder
+
+    van_security.password_resetter:
+        class: Van\SecurityBundle\Service\PasswordResetter
+        arguments: ["@doctrine.orm.entity_manager", "@van_security.token_generator", "@mailer"]
+
+    van_security.token_generator:
+        class: Van\SecurityBundle\Service\TokenGenerator

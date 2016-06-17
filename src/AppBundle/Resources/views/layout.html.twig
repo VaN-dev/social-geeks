@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"><!--<![endif]--><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Analytics Dashboard · MVP Ready</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="{{ asset("css/css.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/css_002.css") }}">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="{{ asset("css/font-awesome.css") }}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ asset("css/bootstrap.css") }}">
+
+
+
+    <!-- App CSS -->
+    <link rel="stylesheet" href="{{ asset("css/mvpready-admin.css") }}">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://jumpstartthemes.com/demo/v/3.0.0/templates/admin-2/favicon.ico">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="layout-fixed  ">
+
+<div id="wrapper">
+
+    {% include "@App/topbar.html.twig" %}
+
+
+    {% include "@App/sidebar.html.twig" %}
+
+    <div class="content-page">
+
+        <div class="content">
+            {% for type, flashMessage in app.session.flashbag.all %}
+                {% include '@App/alert.html.twig' with {'type': type, 'message': flashMessage.0|raw} %}
+            {% endfor %}
+
+            {% block content %}
+            {% endblock content %}
+        </div> <!-- .content -->
+
+    </div> <!-- /.content-page -->
+
+</div> <!-- /#wrapper -->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Core JS -->
+<script src="{{ asset('js/jquery_003.js') }}"></script>
+<script src="{{ asset("js/bootstrap.js") }}"></script>
+<script src="{{ asset("js/jquery_005.js") }}"></script>
+
+
+
+<!-- Plugin JS -->
+<script src="{{ asset("js/excanvas.js") }}"></script>
+<script src="{{ asset("js/jquery.js") }}"></script>
+<script src="{{ asset("js/jquery_008.js") }}"></script>
+<script src="{{ asset("js/jquery_009.js") }}"></script>
+<script src="{{ asset("js/jquery_002.js") }}"></script>
+<script src="{{ asset("js/jquery_006.js") }}"></script>
+<script src="{{ asset("js/jquery_004.js") }}"></script>
+<script src="{{ asset("js/jquery_007.js") }}"></script>
+
+<!-- App JS -->
+<script src="{{ asset("js/mvpready-core.js") }}"></script>
+<script src="{{ asset("js/mvpready-helpers.js") }}"></script>
+<script src="{{ asset("js/mvpready-admin.js") }}"></script>
+
+
+<!-- Demo JS -->
+<script src="{{ asset("js/line.js") }}"></script>
+<script src="{{ asset("js/pie.js") }}"></script>
+<script src="{{ asset("js/auto.js") }}"></script>
+<script src="{{ asset("js/scatter.js") }}"></script>
+<script src="{{ asset("js/vertical.js") }}"></script>
+
+
+
+<a style="display: none;" href="#top" id="back-to-top"><i class="fa fa-chevron-up"></i></a></body></html>

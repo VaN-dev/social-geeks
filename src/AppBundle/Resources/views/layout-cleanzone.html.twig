@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="{{ asset("favicon.ico") }}">
+    <title>Clean Zone</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Raleway:300,200,100" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet" type="text/css">
+    <link href="{{ asset("bundles/app/cleanzone/lib/bootstrap/dist/css/bootstrap.min.css") }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset("bundles/app/cleanzone/lib/font-awesome/css/font-awesome.min.css") }}">
+    <!--if lt IE 9script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    -->
+    <link rel="stylesheet" type="text/css" href="{{ asset("bundles/app/cleanzone/lib/jquery.nanoscroller/css/nanoscroller.css") }}">
+    <link href="{{ asset("bundles/app/cleanzone/css/style.css") }}" rel="stylesheet">
+    <link href="{{ asset("bundles/app/cleanzone/css/custom.css") }}" rel="stylesheet">
+
+    {#{% stylesheets filter="compass" output="css/frontend.css"#}
+    {#"@AppBundle/Resources/public/cleanzone/compass/*.scss"#}
+    {#%}#}
+    {#<link rel="stylesheet" href="{{ asset_url }}"/>#}
+    {#{% endstylesheets %}#}
+</head>
+<body>
+
+{% include "@App/topbar-cleanzone.html.twig" %}
+
+<div id="cl-wrapper">
+    <!--Sidebar item function-->
+    <!--Sidebar sub-item function-->
+
+    {% include "@App/sidebar-cleanzone.html.twig" %}
+
+    <div id="pcont" class="container-fluid">
+
+        {% for type, flashMessage in app.session.flashbag.all %}
+            {% include '@App/alert.html.twig' with {'type': type, 'message': flashMessage.0|raw} %}
+        {% endfor %}
+
+        {% block content %}
+        {% endblock content %}
+
+    </div>
+</div>
+<script type="text/javascript" src="{{ asset("bundles/app/cleanzone/lib/jquery/jquery.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset("bundles/app/cleanzone/lib/jquery.nanoscroller/javascripts/jquery.nanoscroller.js") }}"></script>
+<script type="text/javascript" src="{{ asset("bundles/app/cleanzone/js/cleanzone.js") }}"></script>
+<script src="{{ asset("bundles/app/cleanzone/lib/bootstrap/dist/js/bootstrap.min.js") }}"></script>
+<script src="{{ asset("bundles/app/cleanzone/js/voice-recognition.js") }}"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //initialize the javascript
+        App.init();
+    });
+
+</script>
+</body>
+</html>

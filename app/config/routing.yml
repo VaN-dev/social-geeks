@@ -1,0 +1,15 @@
+van_bookmark:
+    resource: "@VanBookmarkBundle/Resources/config/routing.yml"
+    prefix:   /bookmarks
+
+van_security:
+    resource: "@VanSecurityBundle/Resources/config/routing.yml"
+    prefix:   /
+
+van_user:
+    resource: "@VanUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:   /
