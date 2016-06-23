@@ -172,4 +172,28 @@ class Bookmark
     {
         return $this->user;
     }
+
+    /**
+     * Set scope
+     *
+     * @param \AppBundle\Entity\Scope $scope
+     *
+     * @return Bookmark
+     */
+    public function setScope(\AppBundle\Entity\Scope $scope)
+    {
+        $this->scope = $scope;
+
+        return $this;
+    }
+
+    /**
+     * Get scope
+     *
+     * @return \AppBundle\Entity\Scope
+     */
+    public function getScope()
+    {
+        return $this->scope;
+    }
 }
