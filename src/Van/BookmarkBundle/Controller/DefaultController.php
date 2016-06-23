@@ -6,7 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Van\BookmarkBundle\Entity\Bookmark;
+use Van\BookmarkBundle\Entity\Category;
 use Van\BookmarkBundle\Form\Type\BookmarkType;
+use Van\BookmarkBundle\Form\Type\CategoryType;
 
 class DefaultController extends Controller
 {
@@ -20,11 +22,15 @@ class DefaultController extends Controller
         $bookmarks = $em->getRepository("VanBookmarkBundle:Bookmark")->findAll();
 
         $bookmark = new Bookmark();
-        $form = $this->createForm(BookmarkType::class, $bookmark);
+        $formBookmark = $this->createForm(BookmarkType::class, $bookmark);
+
+        $category = new Category();
+        $formCategory = $this->createForm(CategoryType::class, $category);
 
         return $this->render('VanBookmarkBundle:Default:index.html.twig', [
             "bookmarks" => $bookmarks,
-            "form" => $form->createView(),
+            "formBookmark" => $formBookmark->createView(),
+            "formCategory" => $formCategory->createView(),
         ]);
     }
 
