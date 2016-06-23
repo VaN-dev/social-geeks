@@ -62,124 +62,19 @@
             <div class="col-md-4">
                 <div class="block-flat">
                     <div class="header">
-                        <h2 class="title">Add a new bookmark</h2>
+                        <h2 class="title">Actions</h2>
                     </div>
                     <div class="content">
-                        {#{% include '@VanBookmark/Default/form.html.twig' with {"form": formBookmark} %}#}
-                        <a class="btn btn-default demo-element" href="#bookmarkModal" data-toggle="modal">Create bookmark</a>
+                        <button class="btn btn-primary btn-flat md-trigger" data-modal="form-bookmark">Add a new bookmark</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="bookmarkModal" class="modal modal-styled fade">
-
-        <div class="modal-dialog">
-
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h3 class="modal-title">Styled Modal</h3>
-                </div> <!-- /.modal-header -->
-
-                <div class="modal-body">
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.&hellip;</p>
-                </div> <!-- /.modal-body -->
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div> <!-- /.modal-footer -->
-
-            </div> <!-- /.modal-content -->
-
-        </div><!-- /.modal-dialog -->
-
-    </div><!-- /.modal -->
-
-    {#<div class="container">#}
-
-        {#<div class="page-header">#}
-            {#<h3 class="page-title">My bookmarks</h3>#}
-
-            {#<ol class="breadcrumb">#}
-                {#<li><a href="./">Dashboard</a></li>#}
-                {#<li class="active">My bookmarks</li>#}
-            {#</ol>#}
-        {#</div> <!-- /.page-header -->#}
-
-        {#<div class="row">#}
-
-            {#<div class="col-sm-4 col-sm-push-8">#}
-
-                {#<div class="portlet portlet-boxed">#}
-
-                    {#<div class="portlet-body">#}
-
-                        {#<h5>Add a new bookmark</h5>#}
-
-                        {#{% include '@VanBookmark/Default/form.html.twig' %}#}
-
-                    {#</div> <!-- /.portlet-body -->#}
-
-                {#</div> <!-- /.portlet -->#}
-
-            {#</div> <!-- /.col -->#}
-
-
-
-            {#<div class="col-sm-8 col-sm-pull-4">#}
-
-                {#<div class="portlet portlet-boxed">#}
-
-                    {#<div class="portlet-body">#}
-
-                        {#<h5>Manage my bookmarks</h5>#}
-
-                        {#{% if bookmarks is not empty %}#}
-                            {#<table class="table">#}
-                                {#<thead>#}
-                                {#<tr>#}
-                                    {#<th>Name</th>#}
-                                    {#<th>URI</th>#}
-                                    {#<th width="41"></th>#}
-                                {#</tr>#}
-                                {#</thead>#}
-                                {#<tbody>#}
-                                    {#{% for bookmark in bookmarks %}#}
-                                        {#<tr>#}
-                                            {#<td>{{ bookmark.name }}</td>#}
-                                            {#<td><a href="{{ bookmark.url }}" target="_blank">{{ bookmark.url }} <i class="fa fa-external-link"></i></a></td>#}
-                                            {#<td>#}
-                                                {#<div class="btn-group">#}
-                                                    {#<button data-toggle="dropdown" class="btn btn-xs btn-tertiary dropdown-toggle" type="button" aria-expanded="true">#}
-                                                        {#<i class="fa fa-cogs"></i>#}
-                                                    {#</button>#}
-                                                    {#<ul role="menu" class="dropdown-menu">#}
-                                                        {#<li><a href="{{ path("van_bookmarks_update", {"id": bookmark.id}) }}">Update</a></li>#}
-                                                        {#<li><a href="{{ path("van_bookmarks_delete", {"id": bookmark.id}) }}">Delete</a></li>#}
-                                                    {#</ul>#}
-                                                {#</div>#}
-                                            {#</td>#}
-                                        {#</tr>#}
-                                    {#{% endfor %}#}
-                                {#</tbody>#}
-                            {#</table>#}
-                        {#{% else %}#}
-                            {#You have no bookmark yet.#}
-                        {#{% endif %}#}
-
-                    {#</div> <!-- /.portlet-body -->#}
-
-                {#</div> <!-- /.portlet -->#}
-
-            {#</div> <!-- /.col -->#}
-
-        {#</div> <!-- /.row -->#}
-
-    {#</div>#}
+    <div id="form-bookmark" class="md-modal colored-header custom-width md-effect-9">
+        <div class="md-content">
+            {% include '@VanBookmark/Bookmark/form-modal.html.twig' with {"form": formBookmark} %}
+        </div>
+    </div>
 {% endblock content %}

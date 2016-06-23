@@ -13,6 +13,9 @@ body {
   padding-right: 0;
   box-shadow: 1px 0 6px 0 rgba(0, 0, 0, 0.6)
 }
+.navbar > .container {
+  background: none;
+}
 .navbar > .container .navbar-brand {
   background: #1e2a35;
   margin-left: -15px;
