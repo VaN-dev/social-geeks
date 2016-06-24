@@ -66,6 +66,7 @@
                     </div>
                     <div class="content">
                         <button class="btn btn-primary btn-flat md-trigger" data-modal="form-bookmark">Add a new bookmark</button>
+                        <button class="btn btn-primary btn-flat md-trigger" data-modal="form-category">Add a new category</button>
                     </div>
                 </div>
             </div>
@@ -75,6 +76,11 @@
     <div id="form-bookmark" class="md-modal colored-header custom-width md-effect-9">
         <div class="md-content">
             {% include '@VanBookmark/Bookmark/form-modal.html.twig' with {"form": formBookmark} %}
+        </div>
+    </div>
+    <div id="form-category" class="md-modal colored-header custom-width md-effect-9">
+        <div class="md-content">
+            {% include '@VanBookmark/Category/form-modal.html.twig' with {"form": formCategory} %}
         </div>
     </div>
 {% endblock content %}

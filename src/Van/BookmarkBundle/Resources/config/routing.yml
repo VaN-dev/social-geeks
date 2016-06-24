@@ -5,12 +5,27 @@ van_bookmarks_insert:
     path:     /insert
     defaults: { _controller: VanBookmarkBundle:Default:insert }
 van_bookmarks_update:
-    path:     /update/{id}
+    path:     /{id}/update
     defaults: { _controller: VanBookmarkBundle:Default:update }
     requirements:
         id: \d+
 van_bookmarks_delete:
-    path:     /delete/{id}
+    path:     /{id}/delete
     defaults: { _controller: VanBookmarkBundle:Default:delete }
+    requirements:
+        id: \d+
+
+# Category
+van_bookmarks_category_insert:
+    path:     /category/insert
+    defaults: { _controller: VanBookmarkBundle:Category:insert }
+van_bookmarks_category_update:
+    path:     /category/{id}/update
+    defaults: { _controller: VanBookmarkBundle:Category:update }
+    requirements:
+        id: \d+
+van_bookmarks_category_delete:
+    path:     /category/{id}/delete
+    defaults: { _controller: VanBookmarkBundle:Category:delete }
     requirements:
         id: \d+

@@ -16,7 +16,12 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('category')
+            ->add('category', 'entity', [
+                'label' => 'Parent category',
+                'class' => 'Van\BookmarkBundle\Entity\Category',
+                'property' => 'name',
+                'empty_value' => 'None',
+            ])
         ;
     }
 

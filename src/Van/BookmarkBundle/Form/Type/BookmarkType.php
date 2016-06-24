@@ -17,6 +17,11 @@ class BookmarkType extends AbstractType
         $builder
             ->add('name')
             ->add('url', 'text')
+            ->add('category', 'entity', [
+                'label' => 'Parent category',
+                'class' => 'Van\BookmarkBundle\Entity\Category',
+                'property' => 'name',
+            ])
             ->add('scope', 'entity', [
                 'class' => 'AppBundle\Entity\Scope',
                 'property' => 'name',

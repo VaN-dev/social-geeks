@@ -22,10 +22,14 @@ class DefaultController extends Controller
         $bookmarks = $em->getRepository("VanBookmarkBundle:Bookmark")->findAll();
 
         $bookmark = new Bookmark();
-        $formBookmark = $this->createForm(BookmarkType::class, $bookmark);
+        $formBookmark = $this->createForm(BookmarkType::class, $bookmark, [
+            'action' => $this->generateUrl('van_bookmarks_insert'),
+        ]);
 
         $category = new Category();
-        $formCategory = $this->createForm(CategoryType::class, $category);
+        $formCategory = $this->createForm(CategoryType::class, $category, [
+            'action' => $this->generateUrl('van_bookmarks_category_insert'),
+        ]);
 
         return $this->render('VanBookmarkBundle:Default:index.html.twig', [
             "bookmarks" => $bookmarks,
