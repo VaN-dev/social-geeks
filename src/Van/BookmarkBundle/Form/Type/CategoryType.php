@@ -21,6 +21,7 @@ class CategoryType extends AbstractType
                 'class' => 'Van\BookmarkBundle\Entity\Category',
                 'property' => 'name',
                 'empty_value' => 'None',
+                'required' =>  false,
             ])
         ;
     }

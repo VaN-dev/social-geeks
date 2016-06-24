@@ -31,82 +31,42 @@ class DefaultController extends Controller
             'action' => $this->generateUrl('van_bookmarks_category_insert'),
         ]);
 
+        $links = [
+            [
+                "id" => 1, 
+                "type" => "category", 
+                "name" => "Category 1",
+                "children" => [
+                    [
+                        "id" => 1,
+                        "type" => "bookmark",
+                        "name" => "Bookmark 1",
+                        "url" => "http://www.google.com",
+                    ],
+                    [
+                        "id" => 3,
+                        "type" => "category",
+                        "name" => "Category 3",
+                        "children" => [
+                            [
+                                "id" => 2,
+                                "type" => "bookmark",
+                                "name" => "Bookmark 2",
+                                "url" => "http://www.yahoo.com",
+                            ],
+                        ],
+                    ],
+
+                ]
+            ],
+            ["id" => 2, "type" => "category", "name" => "Category 2"],
+        ];
+
         return $this->render('VanBookmarkBundle:Default:index.html.twig', [
             "bookmarks" => $bookmarks,
             "formBookmark" => $formBookmark->createView(),
             "formCategory" => $formCategory->createView(),
+            "links" => $links,
         ]);
-    }
-
-    /**
-     * @param Request $request
-     * @return RedirectResponse
-     */
-    public function insertAction(Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $bookmark = new Bookmark();
-        $bookmark
-            ->setUser($this->getUser())
-        ;
-
-        $form = $this->createForm(BookmarkType::class, $bookmark);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em->persist($bookmark);
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add("success", "Bookmark successfully added.");
-
-            return new RedirectResponse($this->generateUrl("van_bookmarks"));
-        }
-    }
-
-    /**
-     * @param Request $request
-     * @return RedirectResponse
-     */
-    public function updateAction(Request $request, $id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $bookmark = $em->getRepository("VanBookmarkBundle:Bookmark")->find($id);
-
-        $form = $this->createForm(BookmarkType::class, $bookmark);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add("success", "Bookmark successfully udated.");
-
-            return new RedirectResponse($this->generateUrl("van_bookmarks"));
-        }
-
-        return $this->render('VanBookmarkBundle:Default:update.html.twig', [
-            "form" => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @param Request $request
-     * @return RedirectResponse
-     */
-    public function deleteAction(Request $request, $id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $bookmark = $em->getRepository("VanBookmarkBundle:Bookmark")->find($id);
-
-        $em->remove($bookmark);
-        $em->flush();
-
-        $request->getSession()->getFlashBag()->add("success", "Bookmark successfully deleted.");
-
-        return new RedirectResponse($this->generateUrl("van_bookmarks"));
     }
 }

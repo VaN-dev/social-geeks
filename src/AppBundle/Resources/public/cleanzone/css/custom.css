@@ -1,6 +1,17 @@
 body {
   background: #f4f4f4;
+  font-family: "Open Sans","Trebuchet MS",arial,sans-serif;
+  font-size: 13px;
 }
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  color: #3a5266;
+  font-family: "Oswald","Trebuchet MS","Open Sans",arial,sans-serif;
+  margin-bottom: 0.75em;
+  margin-top: 0;
+
+}
+
 .container {
   width: auto;
   position: relative;
@@ -86,6 +97,6 @@ body {
 }
 
 
-.portlet-boxed .portlet-header + .portlet-body {
-
+.md-modal.colored-header h3 {
+    color: white;
 }

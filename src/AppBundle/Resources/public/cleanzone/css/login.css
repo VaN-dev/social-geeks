@@ -1,0 +1,58 @@
+br.xs-80 {
+    display: inline-block;
+    height: 80px;
+    line-height: 80px;
+}
+.account-wrapper {
+    padding: 0;
+    width: 450px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+.account-body {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+    color: #444444;
+    margin-bottom: 1em;
+    padding: 35px 30px 10px;
+    position: relative;
+}
+.account-body .account-form {
+    padding: 0 25px;
+    text-align: left;
+}
+.account-form {
+    margin-bottom: 2em;
+    margin-top: 2em;
+    padding: 0;
+    text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight: 500;
+}
+h3 {
+    font-size: 28px;
+}
+h5 {
+    font-size: 20px;
+}
+.account-form .form-control {
+    height: 40px;
+    margin-bottom: 1.25em;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+.form-control {
+    border-radius: 3px;
+    box-shadow: none;
+    font-size: 13px;
+    padding: 6px 12px;
+}
+.checkbox-inline, .radio-inline {
+    margin-bottom: 20px;
+    margin-right: 20px;
+}

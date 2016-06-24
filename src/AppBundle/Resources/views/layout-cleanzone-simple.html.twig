@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset("bundles/app/cleanzone/lib/jquery.niftymodals/css/component.css") }}">
     <link href="{{ asset("bundles/app/cleanzone/css/style.css") }}" rel="stylesheet">
     <link href="{{ asset("bundles/app/cleanzone/css/custom.css") }}" rel="stylesheet">
+    <link href="{{ asset("bundles/app/cleanzone/css/login.css") }}" rel="stylesheet">
 
     {#{% stylesheets filter="compass" output="css/frontend.css"#}
     {#"@AppBundle/Resources/public/cleanzone/compass/*.scss"#}
@@ -27,13 +28,25 @@
 </head>
 <body>
 
-{% include "@App/topbar-cleanzone.html.twig" %}
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+                <span class="fa fa-gear"></span>
+            </button>
+            <a href="#" class="navbar-brand">
+                <img src="{{ asset("bundles/app/cleanzone/img/logo.png") }}" alt="">
+                <span>Social Geeks</span>
+            </a>
+        </div>
+
+    </div>
+</div>
 
 <div id="cl-wrapper">
     <!--Sidebar item function-->
     <!--Sidebar sub-item function-->
 
-    {% include "@App/sidebar-cleanzone.html.twig" %}
 
     <div id="pcont" class="container-fluid">
 
@@ -50,15 +63,13 @@
 <script type="text/javascript" src="{{ asset("bundles/app/cleanzone/lib/jquery/jquery.min.js") }}"></script>
 <script type="text/javascript" src="{{ asset("bundles/app/cleanzone/lib/jquery.nanoscroller/javascripts/jquery.nanoscroller.js") }}"></script>
 <script type="text/javascript" src="{{ asset("bundles/app/cleanzone/js/cleanzone.js") }}"></script>
-<script type="text/javascript" src="{{ asset("bundles/app/cleanzone/lib/bootstrap/dist/js/bootstrap.min.js") }}"></script>
-<script type="text/javascript" src="{{ asset("bundles/app/cleanzone/js/voice-recognition.js") }}"></script>
-<script type="text/javascript" src="{{ asset("bundles/app/cleanzone/lib/jquery.niftymodals/js/jquery.modalEffects.js") }}"></script>
-<script type="text/javascript" src="{{ asset("bundles/app/cleanzone/js/page-ui-treeview.js") }}"></script>
+<script src="{{ asset("bundles/app/cleanzone/lib/bootstrap/dist/js/bootstrap.min.js") }}"></script>
+<script src="{{ asset("bundles/app/cleanzone/js/voice-recognition.js") }}"></script>
+<script src="{{ asset("bundles/app/cleanzone/lib/jquery.niftymodals/js/jquery.modalEffects.js") }}"></script>
 <script type="text/javascript">
     $(document).ready(function(){
         //initialize the javascript
         App.init();
-        App.treeView();
         $('.md-trigger').modalEffects();
     });
 

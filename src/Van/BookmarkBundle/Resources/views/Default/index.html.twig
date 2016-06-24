@@ -55,6 +55,67 @@
                         {% else %}
                             You have no bookmark yet.
                         {% endif %}
+
+                        <hr />
+                        <ul class="nav nav-list treeview">
+                            {% include "@VanBookmark/Default/tree-view.html.twig" with {'links':links} only %}
+                            {#<li>#}
+                                {#<label class="tree-toggler nav-header"><i class="fa fa-folder-o"></i> General</label>#}
+                                {#<ul class="nav nav-list tree">#}
+                                    {#<li><a href="#">Link</a></li>#}
+                                    {#<li><a href="#">Link</a></li>#}
+                                    {#<li>#}
+                                        {#<label class="tree-toggler nav-header"><i class="fa fa-folder-o"></i> Structure</label>#}
+                                        {#<ul class="nav nav-list tree">#}
+                                            {#<li><a href="#">Link</a></li>#}
+                                            {#<li><a href="#">Link</a></li>#}
+                                            {#<li>#}
+                                                {#<label class="tree-toggler nav-header"><i class="fa fa-folder-o"></i> Plugins</label>#}
+                                                {#<ul class="nav nav-list tree">#}
+                                                    {#<li><a href="#">Link</a></li>#}
+                                                    {#<li><a href="#">Link</a></li>#}
+                                                {#</ul>#}
+                                            {#</li>#}
+                                        {#</ul>#}
+                                    {#</li>#}
+                                {#</ul>#}
+                            {#</li>#}
+                            {#<li>#}
+                                {#<label class="tree-toggler nav-header"><i class="fa fa-folder-o"></i> Documentation</label>#}
+                                {#<ul class="nav nav-list tree">#}
+                                    {#<li><a href="#">Link</a></li>#}
+                                    {#<li><a href="#">Link</a></li>#}
+                                    {#<li>#}
+                                        {#<label class="tree-toggler nav-header"><i class="fa fa-folder-o"></i> Components</label>#}
+                                        {#<ul class="nav nav-list tree">#}
+                                            {#<li><a href="#">Link</a></li>#}
+                                            {#<li><a href="#">Link</a></li>#}
+                                            {#<li>#}
+                                                {#<label class="tree-toggler nav-header"><i class="fa fa-folder-o"></i> Speech API</label>#}
+                                                {#<ul class="nav nav-list tree">#}
+                                                    {#<li><a href="#">Link</a></li>#}
+                                                    {#<li><a href="#">Link</a></li>#}
+                                                {#</ul>#}
+                                            {#</li>#}
+                                        {#</ul>#}
+                                    {#</li>#}
+                                    {#<li>#}
+                                        {#<label class="tree-toggler nav-header"><i class="fa fa-folder-o"></i> Charts</label>#}
+                                        {#<ul class="nav nav-list tree">#}
+                                            {#<li><a href="#">Link</a></li>#}
+                                            {#<li><a href="#">Link</a></li>#}
+                                            {#<li>#}
+                                                {#<label class="tree-toggler nav-header"><i class="fa fa-folder-o"></i> Reports</label>#}
+                                                {#<ul class="nav nav-list tree">#}
+                                                    {#<li><a href="#">Link</a></li>#}
+                                                    {#<li><a href="#">Link</a></li>#}
+                                                {#</ul>#}
+                                            {#</li>#}
+                                        {#</ul>#}
+                                    {#</li>#}
+                                {#</ul>#}
+                            {#</li>#}
+                        </ul>
                     </div>
                 </div>
 

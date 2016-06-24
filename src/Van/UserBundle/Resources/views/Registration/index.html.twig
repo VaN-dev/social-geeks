@@ -1,4 +1,4 @@
-{% extends '@App/layout-simple.html.twig' %}
+{% extends "@App/layout-cleanzone-simple.html.twig" %}
 
 {% form_theme form "bootstrap_3_layout.html.twig" %}
 
@@ -29,7 +29,7 @@
                 </div> <!-- /.form-group -->
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-secondary btn-block btn-lg" tabindex="6">
+                    <button type="submit" class="btn btn-primary btn-block btn-lg" tabindex="6">
                         Create My Account &nbsp; <i class="fa fa-play-circle"></i>
                     </button>
                 </div> <!-- /.form-group -->
@@ -41,7 +41,7 @@
         <div class="account-footer">
             <p>
                 Already have an account? &nbsp;
-                <a href="./account-login.html" class="">Login to your Account!</a>
+                <a href="{{ path("van_security_login") }}" class="">Login to your Account!</a>
             </p>
         </div> <!-- /.account-footer -->
 
