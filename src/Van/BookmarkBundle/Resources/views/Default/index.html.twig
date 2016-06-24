@@ -16,120 +16,35 @@
     </div>
     <div class="cl-mcont">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
 
                 <div class="block-flat">
                     <div class="header">
                         <h2 class="title">Manage my bookmarks</h2>
+                        <div class="btn-group pull-right">
+                            <button data-toggle="dropdown" class="btn btn-xs btn-tertiary dropdown-toggle" type="button" aria-expanded="true">
+                                <i class="fa fa-cogs"></i>
+                            </button>
+                            <ul role="menu" class="dropdown-menu">
+                                <li><a href="#" class="md-trigger" data-modal="form-bookmark">Create a new bookmark</a></li>
+                                <li><a href="#" class="md-trigger" data-modal="form-category">Create a new category</a></li>
+                                <li><a href="#">Import from ..</a></li>
+                                <li><a href="#">Export to ..</a></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="content">
                         {% if bookmarks is not empty %}
-                            <table class="no-border">
-                                <thead class="no-border">
-                                <tr>
-                                    <th>Name</th>
-                                    <th>URI</th>
-                                    <th width="41"></th>
-                                </tr>
-                                </thead>
-                                <tbody class="no-border-x no-border-y">
-                                    {% for bookmark in bookmarks %}
-                                        <tr>
-                                            <td>{{ bookmark.name }}</td>
-                                            <td><a href="{{ bookmark.url }}" target="_blank">{{ bookmark.url }} <i class="fa fa-external-link"></i></a></td>
-                                            <td>
-                                            <div class="btn-group">
-                                                <button data-toggle="dropdown" class="btn btn-xs btn-tertiary dropdown-toggle" type="button" aria-expanded="true">
-                                                    <i class="fa fa-cogs"></i>
-                                                </button>
-                                                <ul role="menu" class="dropdown-menu">
-                                                    <li><a href="{{ path("van_bookmarks_update", {"id": bookmark.id}) }}">Update</a></li>
-                                                    <li><a href="{{ path("van_bookmarks_delete", {"id": bookmark.id}) }}">Delete</a></li>
-                                                </ul>
-                                            </div>
-                                            </td>
-                                        </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
+                            {% set default_open = true %}
+                            <ul class="nav nav-list treeview">
+                                {% include "@VanBookmark/Default/tree-view.html.twig" with {'tree':tree, 'default_open': default_open} only %}
+                            </ul>
                         {% else %}
                             You have no bookmark yet.
                         {% endif %}
-
-                        <hr />
-                        <ul class="nav nav-list treeview">
-                            {% include "@VanBookmark/Default/tree-view.html.twig" with {'links':links} only %}
-                            {#<li>#}
-                                {#<label class="tree-toggler nav-header"><i class="fa fa-folder-o"></i> General</label>#}
-                                {#<ul class="nav nav-list tree">#}
-                                    {#<li><a href="#">Link</a></li>#}
-                                    {#<li><a href="#">Link</a></li>#}
-                                    {#<li>#}
-                                        {#<label class="tree-toggler nav-header"><i class="fa fa-folder-o"></i> Structure</label>#}
-                                        {#<ul class="nav nav-list tree">#}
-                                            {#<li><a href="#">Link</a></li>#}
-                                            {#<li><a href="#">Link</a></li>#}
-                                            {#<li>#}
-                                                {#<label class="tree-toggler nav-header"><i class="fa fa-folder-o"></i> Plugins</label>#}
-                                                {#<ul class="nav nav-list tree">#}
-                                                    {#<li><a href="#">Link</a></li>#}
-                                                    {#<li><a href="#">Link</a></li>#}
-                                                {#</ul>#}
-                                            {#</li>#}
-                                        {#</ul>#}
-                                    {#</li>#}
-                                {#</ul>#}
-                            {#</li>#}
-                            {#<li>#}
-                                {#<label class="tree-toggler nav-header"><i class="fa fa-folder-o"></i> Documentation</label>#}
-                                {#<ul class="nav nav-list tree">#}
-                                    {#<li><a href="#">Link</a></li>#}
-                                    {#<li><a href="#">Link</a></li>#}
-                                    {#<li>#}
-                                        {#<label class="tree-toggler nav-header"><i class="fa fa-folder-o"></i> Components</label>#}
-                                        {#<ul class="nav nav-list tree">#}
-                                            {#<li><a href="#">Link</a></li>#}
-                                            {#<li><a href="#">Link</a></li>#}
-                                            {#<li>#}
-                                                {#<label class="tree-toggler nav-header"><i class="fa fa-folder-o"></i> Speech API</label>#}
-                                                {#<ul class="nav nav-list tree">#}
-                                                    {#<li><a href="#">Link</a></li>#}
-                                                    {#<li><a href="#">Link</a></li>#}
-                                                {#</ul>#}
-                                            {#</li>#}
-                                        {#</ul>#}
-                                    {#</li>#}
-                                    {#<li>#}
-                                        {#<label class="tree-toggler nav-header"><i class="fa fa-folder-o"></i> Charts</label>#}
-                                        {#<ul class="nav nav-list tree">#}
-                                            {#<li><a href="#">Link</a></li>#}
-                                            {#<li><a href="#">Link</a></li>#}
-                                            {#<li>#}
-                                                {#<label class="tree-toggler nav-header"><i class="fa fa-folder-o"></i> Reports</label>#}
-                                                {#<ul class="nav nav-list tree">#}
-                                                    {#<li><a href="#">Link</a></li>#}
-                                                    {#<li><a href="#">Link</a></li>#}
-                                                {#</ul>#}
-                                            {#</li>#}
-                                        {#</ul>#}
-                                    {#</li>#}
-                                {#</ul>#}
-                            {#</li>#}
-                        </ul>
                     </div>
                 </div>
 
-            </div>
-            <div class="col-md-4">
-                <div class="block-flat">
-                    <div class="header">
-                        <h2 class="title">Actions</h2>
-                    </div>
-                    <div class="content">
-                        <button class="btn btn-primary btn-flat md-trigger" data-modal="form-bookmark">Add a new bookmark</button>
-                        <button class="btn btn-primary btn-flat md-trigger" data-modal="form-category">Add a new category</button>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

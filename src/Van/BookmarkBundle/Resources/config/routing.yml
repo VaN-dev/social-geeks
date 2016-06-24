@@ -1,17 +1,19 @@
 van_bookmarks:
     path:     /
     defaults: { _controller: VanBookmarkBundle:Default:index }
+
+# Bookmark
 van_bookmarks_insert:
     path:     /insert
-    defaults: { _controller: VanBookmarkBundle:Default:insert }
+    defaults: { _controller: VanBookmarkBundle:Bookmark:insert }
 van_bookmarks_update:
     path:     /{id}/update
-    defaults: { _controller: VanBookmarkBundle:Default:update }
+    defaults: { _controller: VanBookmarkBundle:Bookmark:update }
     requirements:
         id: \d+
 van_bookmarks_delete:
     path:     /{id}/delete
-    defaults: { _controller: VanBookmarkBundle:Default:delete }
+    defaults: { _controller: VanBookmarkBundle:Bookmark:delete }
     requirements:
         id: \d+
 

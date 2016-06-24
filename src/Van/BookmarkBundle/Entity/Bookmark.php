@@ -28,7 +28,7 @@ class Bookmark
     protected $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Van\BookmarkBundle\Entity\Category")
+     * @ORM\ManyToOne(targetEntity="Van\BookmarkBundle\Entity\Category", inversedBy="bookmarks")
      * @ORM\JoinColumn(name="category_id", nullable=true)
      */
     protected $category;

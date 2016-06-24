@@ -31,42 +31,16 @@ class DefaultController extends Controller
             'action' => $this->generateUrl('van_bookmarks_category_insert'),
         ]);
 
-        $links = [
-            [
-                "id" => 1, 
-                "type" => "category", 
-                "name" => "Category 1",
-                "children" => [
-                    [
-                        "id" => 1,
-                        "type" => "bookmark",
-                        "name" => "Bookmark 1",
-                        "url" => "http://www.google.com",
-                    ],
-                    [
-                        "id" => 3,
-                        "type" => "category",
-                        "name" => "Category 3",
-                        "children" => [
-                            [
-                                "id" => 2,
-                                "type" => "bookmark",
-                                "name" => "Bookmark 2",
-                                "url" => "http://www.yahoo.com",
-                            ],
-                        ],
-                    ],
-
-                ]
-            ],
-            ["id" => 2, "type" => "category", "name" => "Category 2"],
-        ];
+        $categories = $em->getRepository("VanBookmarkBundle:Category")->findBy(["parent" => null]);
+        
+        $treeBuilder = $this->container->get("van_bookmark.tree_builder.default");
+        $tree = $treeBuilder->build($categories);
 
         return $this->render('VanBookmarkBundle:Default:index.html.twig', [
             "bookmarks" => $bookmarks,
             "formBookmark" => $formBookmark->createView(),
             "formCategory" => $formCategory->createView(),
-            "links" => $links,
+            "tree" => $tree,
         ]);
     }
 }

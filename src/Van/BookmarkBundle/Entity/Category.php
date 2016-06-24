@@ -2,6 +2,7 @@
 
 namespace Van\BookmarkBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,10 +23,10 @@ class Category
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Van\BookmarkBundle\Entity\Category")
-     * @ORM\JoinColumn(name="category_id", nullable=true)
+     * @ORM\ManyToOne(targetEntity="Van\BookmarkBundle\Entity\Category", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_id", nullable=true)
      */
-    protected $category;
+    private $parent;
 
     /**
      * @var string
@@ -34,11 +35,37 @@ class Category
      */
     private $name;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Van\BookmarkBundle\Entity\Category", mappedBy="parent")
+     */
+    private $children;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Van\BookmarkBundle\Entity\Bookmark", mappedBy="category")
+     */
+    private $bookmarks;
+
+
+    /**
+     * GETTERS & SETTERS
+     */
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->children = new ArrayCollection();
+        $this->bookmarks = new ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -70,26 +97,94 @@ class Category
     }
 
     /**
-     * Set category
+     * Set parent
      *
-     * @param \Van\BookmarkBundle\Entity\Category $category
+     * @param \Van\BookmarkBundle\Entity\Category $parent
      *
      * @return Category
      */
-    public function setCategory(\Van\BookmarkBundle\Entity\Category $category = null)
+    public function setParent(\Van\BookmarkBundle\Entity\Category $parent = null)
     {
-        $this->category = $category;
+        $this->parent = $parent;
 
         return $this;
     }
 
     /**
-     * Get category
+     * Get parent
      *
      * @return \Van\BookmarkBundle\Entity\Category
      */
-    public function getCategory()
+    public function getParent()
     {
-        return $this->category;
+        return $this->parent;
+    }
+
+    /**
+     * Add child
+     *
+     * @param \Van\BookmarkBundle\Entity\Category $child
+     *
+     * @return Category
+     */
+    public function addChild(\Van\BookmarkBundle\Entity\Category $child)
+    {
+        $this->children[] = $child;
+
+        return $this;
+    }
+
+    /**
+     * Remove child
+     *
+     * @param \Van\BookmarkBundle\Entity\Category $child
+     */
+    public function removeChild(\Van\BookmarkBundle\Entity\Category $child)
+    {
+        $this->children->removeElement($child);
+    }
+
+    /**
+     * Get children
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * Add bookmark
+     *
+     * @param \Van\BookmarkBundle\Entity\Bookmark $bookmark
+     *
+     * @return Category
+     */
+    public function addBookmark(\Van\BookmarkBundle\Entity\Bookmark $bookmark)
+    {
+        $this->bookmarks[] = $bookmark;
+
+        return $this;
+    }
+
+    /**
+     * Remove bookmark
+     *
+     * @param \Van\BookmarkBundle\Entity\Bookmark $bookmark
+     */
+    public function removeBookmark(\Van\BookmarkBundle\Entity\Bookmark $bookmark)
+    {
+        $this->bookmarks->removeElement($bookmark);
+    }
+
+    /**
+     * Get bookmarks
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBookmarks()
+    {
+        return $this->bookmarks;
     }
 }

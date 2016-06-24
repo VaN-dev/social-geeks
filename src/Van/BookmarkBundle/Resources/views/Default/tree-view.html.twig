@@ -1,55 +1,19 @@
-{% for link in links %}
-    {#<li>#}
-        {#<a href="#">{{ link.name }}</a>#}
-        {#{% if link.sublinks %}#}
-            {#<ul>#}
-                {#{% include "@VanBookmark/Default/tree-view.html.twig" with {'links': link.sublinks} %}#}
-            {#</ul>#}
-        {#{% endif %}#}
-    {#</li>#}
-
-    <li>
-        {% if link.type == "category" %}
+{% for leaf in tree %}
+    <li{% if default_open == true %} class="open"{% endif %}>
+        {% if leaf.type == "Category" %}
             <label class="tree-toggler nav-header">
-                    <i class="fa fa-folder-o"></i> {{ link.name }}
+                <i class="fa{% if default_open == true %} fa-folder-open-o{% else %}fa-folder-o{% endif %}"></i> {{ leaf.name }}
             </label>
         {% else %}
-            <a href="#">{{ link.name }} | {{ link.url }} <i class="fa fa-external-link"></i></a>
+            <label>
+                <i class="fa fa-globe"></i>{{ leaf.name }} <a href="#">{{ leaf.url }} <i class="fa fa-external-link"></i></a>
+            </label>
         {% endif %}
 
-        {% if link.children is defined %}
-        <ul class="nav nav-list tree">
-            {% include "@VanBookmark/Default/tree-view.html.twig" with {'links': link.children} %}
-            {#recursion inclusion here#}
-            {#<li>#}
-                {#<a href="#">Link</a>#}
-            {#</li>#}
-            {#<li>#}
-                {#<a href="#">Link</a>#}
-            {#</li>#}
-            {#<li>#}
-                {#<label class="tree-toggler nav-header"><i class="fa fa-folder-o"></i> Structure</label>#}
-                {#<ul class="nav nav-list tree">#}
-                    {#<li>#}
-                        {#<a href="#">Link</a>#}
-                    {#</li>#}
-                    {#<li>#}
-                        {#<a href="#">Link</a>#}
-                    {#</li>#}
-                    {#<li>#}
-                        {#<label class="tree-toggler nav-header"><i class="fa fa-folder-o"></i> Plugins</label>#}
-                        {#<ul class="nav nav-list tree">#}
-                            {#<li>#}
-                                {#<a href="#">Link</a>#}
-                            {#</li>#}
-                            {#<li>#}
-                                {#<a href="#">Link</a>#}
-                            {#</li>#}
-                        {#</ul>#}
-                    {#</li>#}
-                {#</ul>#}
-            {#</li>#}
-        </ul>
+        {% if leaf.children is defined %}
+            <ul class="nav nav-list tree">
+                {% include "@VanBookmark/Default/tree-view.html.twig" with {'tree': leaf.children} %}
+            </ul>
         {% endif %}
     </li>
 {% endfor %}
