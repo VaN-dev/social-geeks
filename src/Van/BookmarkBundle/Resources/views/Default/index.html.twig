@@ -28,7 +28,7 @@
                             <ul role="menu" class="dropdown-menu">
                                 <li><a href="#" class="md-trigger" data-modal="form-bookmark">Create a new bookmark</a></li>
                                 <li><a href="#" class="md-trigger" data-modal="form-category">Create a new category</a></li>
-                                <li><a href="#">Import from ..</a></li>
+                                <li><a href="#" class="md-trigger" data-modal="form-import">Import from ..</a></li>
                                 <li><a href="#">Export to ..</a></li>
                             </ul>
                         </div>
@@ -49,6 +49,7 @@
         </div>
     </div>
 
+    <!-- modals -->
     <div id="form-bookmark" class="md-modal colored-header custom-width md-effect-9">
         <div class="md-content">
             {% include '@VanBookmark/Bookmark/form-modal.html.twig' with {"form": formBookmark} %}
@@ -57,6 +58,11 @@
     <div id="form-category" class="md-modal colored-header custom-width md-effect-9">
         <div class="md-content">
             {% include '@VanBookmark/Category/form-modal.html.twig' with {"form": formCategory} %}
+        </div>
+    </div>
+    <div id="form-import" class="md-modal colored-header custom-width md-effect-9">
+        <div class="md-content">
+            {% include '@VanBookmark/Import/form-modal.html.twig' with {"form": formImport} %}
         </div>
     </div>
 {% endblock content %}

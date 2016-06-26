@@ -1,0 +1,6 @@
+services:
+    van_feed.form.type.comment:
+        class: Van\FeedBundle\Form\Type\CommentType
+        arguments: ["@doctrine.orm.default_entity_manager"]
+        tags:
+            - { name: form.type }

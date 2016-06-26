@@ -1,0 +1,13 @@
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+{% for comment in comments %}
+    {{ comment.content }}
+    <hr />
+{% endfor %}
+
+{{ form_start(form) }}
+    {{ form_widget(form.content, {"attr": {"class": "form-control"}}) }}
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary pull-right">Post comment</button>
+    </div>
+{{ form_end(form) }}

@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Van\UserBundle\VanUserBundle(),
             new Van\SecurityBundle\VanSecurityBundle(),
             new Van\BookmarkBundle\VanBookmarkBundle(),
+            new Van\FeedBundle\VanFeedBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

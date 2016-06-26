@@ -22,11 +22,9 @@ class BookmarkController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $bookmark = new Bookmark();
-        $bookmark
-            ->setUser($this->getUser())
-        ;
-
-        $form = $this->createForm(BookmarkType::class, $bookmark);
+        $form = $this->createForm(BookmarkType::class, $bookmark, [
+            'action' => $this->generateUrl('van_bookmarks_insert'),
+        ]);
 
         $form->handleRequest($request);
 

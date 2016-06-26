@@ -20,12 +20,47 @@
 
                 <div class="block-flat">
                     <div class="header">
-                        <h2 class="title">Timeline</h2>
+                        <h2 class="title">Activity feed</h2>
                     </div>
                     <div class="content">
-                        <p>
-                            Lorem ipsum
-                        </p>
+                        <div class="share-widget clearfix">
+                            {% include "VanFeedBundle:Default:form.html.twig" with {"form": form} %}
+                        </div>
+
+                        <br /><br />
+
+                        {% for post in posts %}
+                            <div class="feed-item feed-item-idea">
+
+                                <div class="feed-icon bg-primary">
+                                    <i class="fa fa-lightbulb-o"></i>
+                                </div> <!-- /.feed-icon -->
+
+                                <div class="feed-subject">
+                                    <p><a href="javascript:;">{{ post.user.firstname ~" "~ post.user.lastname }}</a> wrote this :</p>
+                                </div> <!-- /.feed-subject -->
+
+                                <div class="feed-content">
+                                    <ul class="icons-list">
+                                        <li>
+                                            <i class="icon-li fa fa-quote-left"></i>
+                                            {{ post.content }}
+                                        </li>
+                                    </ul>
+                                </div> <!-- /.feed-content -->
+
+                                <div class="feed-actions">
+                                    <a class="pull-left" href="javascript:;"><i class="fa fa-thumbs-up"></i> {{ post.likes }}</a>
+                                    <a class="pull-left load-comments-trigger" href="#" data-post-id="{{ post.id }}"><i class="fa fa-comment-o"></i> {{ post.comments | length }}</a>
+
+                                    <a class="pull-right" href="javascript:;"><i class="fa fa-clock-o"></i> {{ post.createdAt | date("d/m/Y H:i") }}</a>
+                                </div> <!-- /.feed-actions -->
+
+                                <div class="comments-list" id="comments-list-{{ post.id }}">
+
+                                </div>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
 
@@ -35,3 +70,23 @@
     </div>
 
 {% endblock content %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(document).on("click", ".load-comments-trigger", function(e) {
+                e.preventDefault();
+                var post_id = $(this).data("post-id");
+                $.ajax({
+                    url: "{{ path("van_feed_comment_list_from_post") }}",
+                    data: {
+                        id: post_id
+                    },
+                    success: function( tpl ) {
+                        $( "#comments-list-"+post_id ).html( tpl );
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock javascript %}

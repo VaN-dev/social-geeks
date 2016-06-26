@@ -10,6 +10,7 @@
 /vendor/
 /web/bundles/
 /.idea/*
+/_resources/
 
 # doctrine entities generation backup
 *.php~

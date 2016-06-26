@@ -1,0 +1,21 @@
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+{{ form_start(form) }}
+
+    {{ form_widget(form.content, {"attr": {"class": "share-widget-textarea"}}) }}
+
+    <div class="share-widget-actions">
+        <div class="share-widget-types pull-left">
+            <a title="" class="fa fa-picture-o ui-tooltip" href="javascript:;" data-original-title="Post an Image"><i></i></a>
+            <a title="" class="fa fa-video-camera ui-tooltip" href="javascript:;" data-original-title="Upload a Video"><i></i></a>
+            <a title="" class="fa fa-lightbulb-o ui-tooltip" href="javascript:;" data-original-title="Post an Idea"><i></i></a>
+            <a title="" class="fa fa-question-circle ui-tooltip" href="javascript:;" data-original-title="Ask a Question"><i></i></a>
+        </div>
+
+        <div class="pull-right form-inline">
+            {{ form_widget(form.scope) }}
+            <button type="submit" class="btn btn-primary btn-sm">Post</button>
+        </div>
+
+    </div> <!-- /.share-widget-actions -->
+{{ form_end(form) }}

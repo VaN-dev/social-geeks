@@ -55,13 +55,14 @@
 <script type="text/javascript" src="{{ asset("bundles/app/cleanzone/lib/jquery.niftymodals/js/jquery.modalEffects.js") }}"></script>
 <script type="text/javascript" src="{{ asset("bundles/app/cleanzone/js/page-ui-treeview.js") }}"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-        //initialize the javascript
-        App.init();
-        App.treeView();
-        $('.md-trigger').modalEffects();
-    });
-
+$(document).ready(function(){
+    //initialize the javascript
+    App.init();
+    App.treeView();
+    $('.md-trigger').modalEffects();
+});
 </script>
+{% block javascript %}
+{% endblock javascript %}
 </body>
 </html>

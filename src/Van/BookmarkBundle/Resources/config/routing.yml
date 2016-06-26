@@ -31,3 +31,8 @@ van_bookmarks_category_delete:
     defaults: { _controller: VanBookmarkBundle:Category:delete }
     requirements:
         id: \d+
+
+# Import
+van_bookmarks_import:
+    path:     /import
+    defaults: { _controller: VanBookmarkBundle:Import:import }

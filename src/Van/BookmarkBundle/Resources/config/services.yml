@@ -1,3 +1,9 @@
 services:
     van_bookmark.tree_builder.default:
         class: Van\BookmarkBundle\Service\TreeBuilder\DefaultTreeBuilder
+
+    van_bookmark.parser.bookmark_parser:
+            class: Van\BookmarkBundle\Service\Parser\BookmarkParser
+
+    van_bookmark.parser.netscape_bookmark_parser:
+        class: Van\BookmarkBundle\Service\Parser\NetscapeBookmarkParser

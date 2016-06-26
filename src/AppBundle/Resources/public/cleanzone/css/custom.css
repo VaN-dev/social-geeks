@@ -98,3 +98,144 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .md-modal.colored-header h3 {
     color: white;
 }
+
+/** Feed post **/
+.form-control {
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  color: #555;
+  display: block;
+  font-size: 14px;
+  height: 34px;
+  line-height: 1.42857;
+  padding: 6px 12px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  width: 100%;
+}
+
+.share-widget-textarea {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-color: #ddd;
+  resize: none;
+}
+.share-widget-actions::before, .share-widget-actions::after {
+  content: " ";
+  display: table;
+}
+.share-widget-actions::after {
+  clear: both;
+}
+.share-widget-actions::before, .share-widget-actions::after {
+  content: " ";
+  display: table;
+}
+.share-widget-actions {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background-color: #f5f5f5;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-color: -moz-use-text-color #dddddd #dddddd;
+  border-image: none;
+  border-style: none solid solid;
+  border-width: medium 1px 1px;
+  padding: 8px 15px;
+}
+.share-widget-types a {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: #aaaaaa;
+  display: inline-block;
+  font-size: 17px;
+  padding: 5px 0;
+  text-align: center;
+  width: 2em;
+}
+
+/** Feed item **/
+.bg-primary {
+  background: #d74b4b none repeat scroll 0 0;
+  color: #fff;
+}
+.feed-item {
+  border-left: 2px solid #ddd;
+  margin: 0 0 0 20px;
+  padding: 22px 0 35px 40px;
+  position: relative;
+}
+.feed-icon {
+  border: 3px solid #fff;
+  border-radius: 6px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
+  font-size: 16px;
+  height: 40px;
+  left: -23px;
+  line-height: 34px;
+  position: absolute;
+  text-align: center;
+  top: 15px;
+  width: 40px;
+}
+.feed-subject {
+  margin-bottom: 1.5em;
+}
+p {
+  line-height: 1.7em;
+}
+.feed-subject a {
+  font-weight: 600;
+}
+.feed-content {
+  padding-left: 25px;
+}
+.icons-list {
+  list-style: outside none none;
+  margin: 0 0 10px;
+  padding: 0;
+}
+.icons-list > li {
+  line-height: 1.65em;
+  margin-bottom: 1em;
+  padding-left: 1.75em;
+  position: relative;
+}
+.icons-list > li > .icon-li {
+  font-size: 1.25em;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 0.25em;
+  width: 1em;
+}
+.feed-actions::before, .feed-actions::after {
+  content: " ";
+  display: table;
+}
+.feed-actions::after {
+  clear: both;
+}
+.feed-actions::before, .feed-actions::after {
+  content: " ";
+  display: table;
+}
+.feed-actions {
+  border-top: 1px dotted #ccc;
+  margin-top: 2em;
+  padding: 10px;
+}
+.feed-actions .pull-left {
+  margin: 0 15px 0 0;
+}
+.feed-actions .pull-right {
+  margin: 0 0 0 15px;
+}
+.feed-actions a {
+  color: #999;
+  font-size: 13px;
+}

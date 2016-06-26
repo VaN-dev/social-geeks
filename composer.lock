@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a578ba79804b733e6a3727180a321d77",
-    "content-hash": "056a7e60eed5a83998bb9041ad8aaddb",
+    "hash": "d6f777e50069d878732af0b9680e25d5",
+    "content-hash": "594c3f6a0813038c6bceb4c9410a6e5a",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -916,6 +916,60 @@
                 "sql"
             ],
             "time": "2014-01-12 16:20:24"
+        },
+        {
+            "name": "kafene/netscape-bookmark-parser",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kafene/netscape-bookmark-parser.git",
+                "reference": "3d1ba72380efe35827a2e77e9f9957edc07b70d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kafene/netscape-bookmark-parser/zipball/3d1ba72380efe35827a2e77e9f9957edc07b70d3",
+                "reference": "3d1ba72380efe35827a2e77e9f9957edc07b70d3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.6.*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "NetscapeBookmarkParser.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kafene",
+                    "email": "io@kafene.org",
+                    "homepage": "https://github.com/kafene",
+                    "role": "Developer"
+                },
+                {
+                    "name": "VirtualTam",
+                    "email": "virtualtam@flibidi.net",
+                    "homepage": "https://github.com/virtualtam",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Generic Netscape bookmark parser",
+            "homepage": "https://github.com/kafene/netscape-bookmark-parser",
+            "keywords": [
+                "bookmark",
+                "link",
+                "netscape",
+                "parse"
+            ],
+            "time": "2016-05-20 13:13:42"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -2375,7 +2429,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "kafene/netscape-bookmark-parser": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

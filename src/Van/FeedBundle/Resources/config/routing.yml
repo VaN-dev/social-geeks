@@ -1,0 +1,6 @@
+van_feed_comment_save:
+    path:     /comments/save
+    defaults: { _controller: VanFeedBundle:Comment:save }
+van_feed_comment_list_from_post:
+    path:     /comments/list-from-post
+    defaults: { _controller: VanFeedBundle:Comment:listFromPost }

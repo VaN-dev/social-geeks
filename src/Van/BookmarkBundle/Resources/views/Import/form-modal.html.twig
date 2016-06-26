@@ -1,0 +1,15 @@
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+{{ form_start(form) }}
+    <div class="modal-header">
+        <h3>Import bookmarks</h3>
+        <button type="button" data-dismiss="modal" aria-hidden="true" class="close md-close">×</button>
+    </div>
+    <div class="modal-body form">
+        {{ form_widget(form) }}
+    </div>
+    <div class="modal-footer">
+        <button type="button" data-dismiss="modal" class="btn btn-default btn-flat md-close">Cancel</button>
+        <button type="submit" class="btn btn-primary btn-flat">Proceed</button>
+    </div>
+{{ form_end(form) }}

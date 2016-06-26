@@ -1,3 +1,7 @@
+van_feed:
+    resource: "@VanFeedBundle/Resources/config/routing.yml"
+    prefix:   /
+
 van_bookmark:
     resource: "@VanBookmarkBundle/Resources/config/routing.yml"
     prefix:   /bookmarks
