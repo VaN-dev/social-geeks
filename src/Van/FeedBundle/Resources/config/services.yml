@@ -4,3 +4,16 @@ services:
         arguments: ["@doctrine.orm.default_entity_manager"]
         tags:
             - { name: form.type }
+
+    van_feed.post_parser.default:
+        class: Van\FeedBundle\Service\PostParser
+        arguments: ["@van_feed.post_urifier.default"]
+
+    van_feed.post_urifier.default:
+        class: Van\FeedBundle\Service\PostUrifier
+
+    van_feed.listener.post:
+        class: Van\FeedBundle\EventListener\PostListener
+        arguments: ["@van_feed.post_parser.default"]
+        tags:
+            - { name: kernel.event_listener, event: van_feed.pre_post_inserted, method: prePostInserted }

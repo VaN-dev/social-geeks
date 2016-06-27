@@ -23,19 +23,9 @@ class DefaultController extends Controller
 
         $post = new Post();
         $post->setUser($this->getUser());
-        $form = $this->createForm(PostType::class, $post);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em->persist($post);
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add("success", "Post successfully added.");
-
-            return new RedirectResponse($this->generateUrl("index"));
-        }
-
+        $form = $this->createForm(PostType::class, $post, [
+            "action" => $this->generateUrl("van_feed_post_save"),
+        ]);
 
         // replace this example code with whatever you need
         return $this->render('@App/Default/index.html.twig', [

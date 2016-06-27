@@ -1,3 +1,7 @@
+van_feed_post_save:
+    path:     /posts/save
+    defaults: { _controller: VanFeedBundle:Post:save }
+
 van_feed_comment_save:
     path:     /comments/save
     defaults: { _controller: VanFeedBundle:Comment:save }
