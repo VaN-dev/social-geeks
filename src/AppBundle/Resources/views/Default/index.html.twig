@@ -50,7 +50,7 @@
                                 </div> <!-- /.feed-content -->
 
                                 <div class="feed-actions">
-                                    <a class="pull-left" href="javascript:;"><i class="fa fa-thumbs-up"></i> {{ post.likes }}</a>
+                                    <a class="pull-left" href="{{ path("van_feed_post_like", {"id": post.id}) }}"><i class="fa fa-thumbs-up"></i> {{ post.likes }}</a>
                                     <a class="pull-left load-comments-trigger" href="#" data-post-id="{{ post.id }}"><i class="fa fa-comment-o"></i> {{ post.comments | length }}</a>
 
                                     <a class="pull-right" href="javascript:;"><i class="fa fa-clock-o"></i> {{ post.createdAt | date("d/m/Y H:i") }}</a>
