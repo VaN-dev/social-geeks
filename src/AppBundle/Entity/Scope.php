@@ -94,4 +94,3 @@ class Scope
         return $this->identifier;
     }
 }
-

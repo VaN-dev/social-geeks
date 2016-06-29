@@ -51,7 +51,7 @@ class PostController extends Controller
 
         $post = $em->getRepository("VanFeedBundle:Post")->find($id);
 
-        $unique = $em->getRepository("VanFeedBundle:PostLike")->findBy(["user" => $this->getUser(), "post" => $post]);
+        $unique = $em->getRepository("VanFeedBundle:PostLike")->findOneBy(["user" => $this->getUser(), "post" => $post]);
 
         if (null === $unique) {
             $post->setLikes($post->getLikes() + 1);

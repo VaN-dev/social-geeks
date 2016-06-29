@@ -1,0 +1,38 @@
+{% extends "@App/layout-cleanzone.html.twig" %}
+
+{% block content %}
+
+    <div class="page-head">
+        <h2>My profile</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="{{ path("index") }}">Home</a>
+            </li>
+            <li class="active">My profile</li>
+        </ol>
+    </div>
+    <div class="cl-mcont">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="block-flat">
+                    <div class="header">
+                        <h2 class="title">My communities</h2>
+                    </div>
+                    <div class="content">
+
+                        {{ form_start(formJoinCommunity, {"attr": {"class": "form-inline"}}) }}
+                            {{ form_widget(formJoinCommunity.community) }}
+
+                            <button type="submit" class="btn btn-primary">Join this community</button>
+                        {{ form_end(formJoinCommunity) }}
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock content %}
