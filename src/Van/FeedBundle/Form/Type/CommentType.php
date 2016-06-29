@@ -30,7 +30,7 @@ class CommentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('content', null, [
+            ->add('content', 'text', [
                 'attr' => [
                     'placeholder' => 'Comment this post...',
                 ],

@@ -239,3 +239,22 @@ p {
   color: #999;
   font-size: 13px;
 }
+
+.comments-list form {
+  margin: 10px 0;
+}
+.feed-item-comment {
+  margin: 0;
+  padding: 5px 20px;
+  border-left: none;
+}
+.feed-item-comment:nth-child(odd) {
+  background: #f5f5f5;
+}
+.comment-content {
+  margin-top: .5em;
+}
+.comment-actions{
+  margin-top: .5em;
+  padding: 5px;
+}
