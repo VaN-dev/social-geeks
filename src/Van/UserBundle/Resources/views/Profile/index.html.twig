@@ -43,7 +43,7 @@
             $(".js-data-example-ajax").select2({
                 theme: 'bootstrap',
                 ajax: {
-                    url: "https://api.github.com/search/repositories",
+                    url: "{{ path("api_communities") }}",
                     dataType: 'json',
                     delay: 250,
                     data: function (params) {

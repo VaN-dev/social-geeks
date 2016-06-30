@@ -1,0 +1,7 @@
+api:
+    path:     /
+    defaults: { _controller: ApiBundle:Default:index }
+
+api_communities:
+    path:     /communities
+    defaults: { _controller: ApiBundle:Community:getCommunities }
