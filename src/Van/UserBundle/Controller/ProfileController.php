@@ -3,25 +3,26 @@
 namespace Van\UserBundle\Controller;
 
 use AppBundle\Entity\UserCommunity;
+use AppBundle\Form\CommunitySearchType;
 use AppBundle\Form\JoinCommunityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class ProfileController extends Controller
 {
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param Request $request
+     * @return RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        $userCommunity = new UserCommunity();
-        $userCommunity
-            ->setUser($this->getUser())
-        ;
+        $em = $this->getDoctrine()->getManager();
 
-        $formJoinCommunity = $this->createForm(new JoinCommunityType(), $userCommunity);
+        $communities = $em->getRepository("AppBundle:UserCommunity")->findBy(["user" => $this->getUser()]);
 
         return $this->render('VanUserBundle:Profile:index.html.twig', [
-            "formJoinCommunity" => $formJoinCommunity->createView(),
+            "communities" => $communities,
         ]);
     }
 }

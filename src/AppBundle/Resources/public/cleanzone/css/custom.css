@@ -258,3 +258,37 @@ p {
   margin-top: .5em;
   padding: 5px;
 }
+
+.thumbnail {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: block;
+  line-height: 1.42857;
+  margin-bottom: 20px;
+  padding: 4px;
+  transition: border 0.2s ease-in-out 0s;
+}
+.thumbnail-view {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+}
+.thumbnail-view img {
+  max-width: 100%;
+}
+.thumbnail .caption {
+  color: #333;
+  padding: 9px;
+}
+.thumbnail-footer::after {
+  clear: both;
+}
+.thumbnail-footer::before, .thumbnail-footer::after {
+  content: " ";
+  display: table;
+}
+.thumbnail-footer {
+  border-top: 1px dotted #ccc;
+  padding: 7px 10px;
+}
