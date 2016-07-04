@@ -1,0 +1,44 @@
+{% extends "@App/layout-cleanzone.html.twig" %}
+
+{% block content %}
+
+    <div class="page-head">
+        <h2>Blank Page</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">Category</a>
+            </li>
+            <li class="active">Sub Category</li>
+        </ol>
+    </div>
+    <div class="cl-mcont">
+        <div class="row">
+            <div class="col-md-9">
+
+                <div class="block-flat">
+                    <div class="header">
+                        <h2 class="title">{{ community.name }}</h2>
+                    </div>
+                    <div class="content">
+                        created on {{ community.createdAt | date("Y-m-d") }} by {{ community.createdBy.firstname ~" "~ community.createdBy.lastname }}
+
+                        <hr />
+
+                        <h3>Members ({{ community.users | length }})</h3>
+                        <ul>
+                            {% for user in community.users %}
+                                <li><a href="#">{{ user.user.firstname ~" "~ user.user.lastname }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+
+{% endblock content %}

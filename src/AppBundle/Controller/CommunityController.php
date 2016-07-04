@@ -22,6 +22,9 @@ class CommunityController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $community = new Community();
+        $community
+            ->setCreatedBy($this->getUser())
+        ;
         $form = $this->createForm(CommunityType::class, $community);
 
         $form->handleRequest($request);
@@ -34,6 +37,26 @@ class CommunityController extends Controller
 
             return new RedirectResponse($this->generateUrl("van_user_profile"));
         }
+        
+        return $this->render("AppBundle:Community:create.html.twig", [
+            "form" => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function showAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $community = $em->getRepository("AppBundle:Community")->find($id);
+        
+        return $this->render("AppBundle:Community:show.html.twig", [
+            "community" => $community,
+        ]);
     }
 
     /**

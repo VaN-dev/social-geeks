@@ -33,7 +33,7 @@ class UserCommunity
     /**
      * @var Community
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Community")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Community", inversedBy="users")
      * @ORM\JoinColumn(nullable=false)
      */
     private $community;

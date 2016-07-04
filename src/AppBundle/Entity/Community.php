@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Van\UserBundle\Entity\User;
 
 /**
  * Community
@@ -20,6 +21,21 @@ class Community
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @var Community
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\UserCommunity", mappedBy="community")
+     */
+    private $users;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="Van\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="created_by")
+     */
+    private $createdBy;
 
     /**
      * @var \DateTime
@@ -58,6 +74,14 @@ class Community
     /**
      * GETTERS & SETTERS
      */
+
+    /**
+     * Community constructor.
+     */
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
 
     /**
      * Get id
@@ -115,5 +139,63 @@ class Community
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param \Van\UserBundle\Entity\User $createdBy
+     *
+     * @return Community
+     */
+    public function setCreatedBy(\Van\UserBundle\Entity\User $createdBy = null)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return \Van\UserBundle\Entity\User
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \AppBundle\Entity\UserCommunity $user
+     *
+     * @return Community
+     */
+    public function addUser(\AppBundle\Entity\UserCommunity $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \AppBundle\Entity\UserCommunity $user
+     */
+    public function removeUser(\AppBundle\Entity\UserCommunity $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

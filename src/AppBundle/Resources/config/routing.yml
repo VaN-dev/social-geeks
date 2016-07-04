@@ -5,12 +5,21 @@ index:
 communities_create:
     path:       /communities/create
     defaults:   { _controller: "AppBundle:Community:create" }
+communities_show:
+    path:       /communities/{id}
+    defaults:   { _controller: "AppBundle:Community:show" }
+    requirements:
+        id: \d+
 communities_search:
     path:       /communities/search
     defaults:   { _controller: "AppBundle:Community:search" }
 communities_join:
     path:       /communities/{id}/join
     defaults:   { _controller: "AppBundle:Community:join" }
+    requirements:
+        id: \d+
 communities_leave:
     path:       /communities/{id}/leave
     defaults:   { _controller: "AppBundle:Community:leave" }
+    requirements:
+        id: \d+
