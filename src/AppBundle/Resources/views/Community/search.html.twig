@@ -1,0 +1,54 @@
+{% extends "@App/layout-cleanzone.html.twig" %}
+
+{% block content %}
+
+    <div class="page-head">
+        <h2>Blank Page</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">Category</a>
+            </li>
+            <li class="active">Sub Category</li>
+        </ol>
+    </div>
+    <div class="cl-mcont">
+        <div class="row">
+            <div class="col-md-9">
+
+                <div class="block-flat">
+                    <div class="header">
+                        <h2 class="title">Activity feed</h2>
+                    </div>
+                    <div class="content">
+                        <div class="share-widget clearfix">
+                            {{ form_start(form) }}
+                                {{ form_row(form.pattern) }}
+
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            {{ form_end(form) }}
+
+                            {% if communities is not null %}
+                                <h3>Results</h3>
+                                {% if communities is not empty %}
+                                    <ul class="row list-unstyled">
+                                        {% for community in communities %}
+                                            {% include "AppBundle:Community:community-item.html.twig" with {"community": community, "actions": ["join"]} %}
+                                        {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    No community found.
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+
+{% endblock content %}

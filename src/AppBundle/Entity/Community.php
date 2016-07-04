@@ -37,6 +37,29 @@ class Community
 
 
     /**
+     * CUSTOM METHODS
+     */
+    public function imageAbsoluteUrl($size = "medium")
+    {
+        switch ($size) {
+            case "large":
+                $file = "800x150";
+                break;
+            case "medium":
+                $file = "400x150";
+                break;
+            case "small":
+                $file = "200x150";
+                break;
+        }
+        return "http://placehold.it/" . $file;
+    }
+
+    /**
+     * GETTERS & SETTERS
+     */
+
+    /**
      * Get id
      *
      * @return int

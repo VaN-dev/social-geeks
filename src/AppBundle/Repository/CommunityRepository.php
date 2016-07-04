@@ -10,4 +10,17 @@ namespace AppBundle\Repository;
  */
 class CommunityRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @param $pattern
+     * @return array
+     */
+    public function search($pattern)
+    {
+        $qb = $this->createQueryBuilder("c")
+            ->where("c.name LIKE :pattern")
+            ->setParameter("pattern", "%".$pattern."%")
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
 }

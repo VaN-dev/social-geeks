@@ -1,0 +1,31 @@
+<li class="col-md-3">
+    <div class="thumbnail">
+        <div class="thumbnail-view">
+            <img alt="Gallery Image" style="width: 100%" src="{{ community.imageAbsoluteUrl }}">
+        </div>
+
+        <div class="caption">
+            <h3>{{ community.name }}</h3>
+            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            <p>
+                {% if "join" in actions %}
+                    <a href="{{ path("communities_join", {"id": community.id}) }}" class="btn btn-primary btn-sm btn-sm">Join</a>
+                {% endif %}
+
+                {% if "leave" in actions %}
+                    <a href="{{ path("communities_leave", {"id": community.id}) }}" class="btn btn-warning btn-sm btn-sm">Leave</a>
+                {% endif %}
+            </p>
+        </div>
+
+        <div class="thumbnail-footer">
+            <div class="pull-left">
+                <a href="javascript:;"><i class="fa fa-user"></i> 29</a>
+            </div>
+
+            <div class="pull-right">
+                <a href="javascript:;"><i class="fa fa-thumbs-up"></i> 123</a>
+            </div>
+        </div>
+    </div>
+</li>
