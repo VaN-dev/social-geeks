@@ -2,7 +2,7 @@ var App = (function () {
 
   App.codeEditor = function( ){
     'use strict'
-
+    console.log('ok');
     /*Codemirror*/
     var code = $("#code1").html();
     code = code.replace(/&lt;/g, '<');

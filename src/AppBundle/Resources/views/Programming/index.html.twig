@@ -1,0 +1,73 @@
+{% extends "@App/layout-cleanzone-programming.html.twig" %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset("bundles/app/cleanzone/lib/jquery.codemirror/lib/codemirror.css") }}">
+    <link rel="stylesheet" href="{{ asset("bundles/app/cleanzone/lib/jquery.codemirror/theme/ambiance.css") }}">
+{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="page-aside app codeditor">
+        <div>
+            <div class="content">
+                <button data-target=".app-nav" data-toggle="collapse" type="button" class="navbar-toggle"><span class="fa fa-chevron-down"></span></button>
+                <h2 class="page-title">Code Editor</h2>
+                <p class="description">Clean Zone editor</p>
+            </div>
+            <div class="app-nav collapse">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a href="#"><span class="label label-primary pull-right unsaved">*</span><i class="fa fa-file"></i> index.html</a></li>
+                    <li><a href="#"><i class="fa fa-file"></i> style.css</a></li>
+                    <li><a href="#"><i class="fa fa-file"></i> script.js</a></li>
+                </ul>
+                <p class="title">Actions</p>
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="#">Open File</a></li>
+                    <li><a href="#">Save File</a></li>
+                    <li><a href="#">Save As...</a></li>
+                </ul>
+                <div class="compose"><a class="btn btn-flat btn-primary">New File</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-app">
+        <div class="code-editor">
+            <div id="console"></div>
+        </div>
+    </div>
+
+
+
+
+    <div id="code1" style="display:none;">&lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        &lt;head&gt;
+        &lt;title&gt;Bootstrap 101 Template&lt;/title&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+        &lt;!-- Bootstrap --&gt;
+        &lt;link href=&quot;css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+
+        &lt;/head&gt;
+        &lt;body&gt;
+        &lt;h1&gt;Hello, world!&lt;/h1&gt;
+
+        &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;
+        &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;
+        &lt;div class=&quot;col-md-4&quot;&gt;.col-md-4&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-md-6&quot;&gt;.col-md-6&lt;/div&gt;
+        &lt;div class=&quot;col-md-6&quot;&gt;.col-md-6&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- jQuery (necessary for Bootstrap's JavaScript plugins) --&gt;
+        &lt;script src=&quot;https://code.jquery.com/jquery.js&quot;&gt;&lt;/script&gt;
+
+        &lt;!-- Include all compiled plugins (below)--&gt;
+        &lt;script src=&quot;js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+    </div>
+{% endblock content %}

@@ -2,6 +2,7 @@ index:
     path:       /
     defaults:   { _controller: "AppBundle:Default:index" }
 
+# Community
 communities_create:
     path:       /communities/create
     defaults:   { _controller: "AppBundle:Community:create" }
@@ -23,3 +24,8 @@ communities_leave:
     defaults:   { _controller: "AppBundle:Community:leave" }
     requirements:
         id: \d+
+
+# Programming
+programming:
+    path:       /programming
+    defaults:   { _controller: "AppBundle:Programming:index" }
