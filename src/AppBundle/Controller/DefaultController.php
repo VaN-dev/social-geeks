@@ -2,11 +2,10 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Feed\Post;
+use AppBundle\Form\Type\Feed\PostType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Van\FeedBundle\Entity\Post;
-use Van\FeedBundle\Form\Type\PostType;
 
 class DefaultController extends Controller
 {
@@ -19,12 +18,12 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         // fetch posts
-        $posts = $em->getRepository("VanFeedBundle:Post")->findBy([], ["createdAt" => "DESC"]);
+        $posts = $em->getRepository('AppBundle:Feed\Post')->findBy([], ["createdAt" => "DESC"]);
 
         $post = new Post();
         $post->setUser($this->getUser());
         $form = $this->createForm(PostType::class, $post, [
-            "action" => $this->generateUrl("van_feed_post_save"),
+            "action" => $this->generateUrl("app.feed.post_save"),
         ]);
 
         // replace this example code with whatever you need

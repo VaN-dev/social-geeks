@@ -1,0 +1,13 @@
+services:
+    app.security.password_encoder:
+        class: AppBundle\Service\PasswordEncoder
+
+    app.security.password_resetter:
+        class: AppBundleBundle\Service\PasswordResetter
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@app.security.token_generator"
+            - "@mailer"
+
+    app.security.token_generator:
+        class: AppBundleBundle\Service\TokenGenerator

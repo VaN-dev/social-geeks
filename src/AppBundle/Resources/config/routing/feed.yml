@@ -1,0 +1,17 @@
+app.feed.post_save:
+    path:     /posts/save
+    defaults: { _controller: AppBundle:Feed/Post:save }
+
+app.feed.post_like:
+    path:     /posts/{id}/like
+    defaults: { _controller: AppBundle:Feed/Post:like }
+    requirements:
+        id: \d+
+
+app.feed.comment_save:
+    path:     /comments/save
+    defaults: { _controller: AppBundle:Feed/Comment:save }
+
+app.feed.comment_list_from_post:
+    path:     /comments/list-from-post
+    defaults: { _controller: AppBundle:Feed/Comment:listFromPost }

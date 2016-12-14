@@ -3,7 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Van\UserBundle\Entity\User;
+use AppBundle\Entity\User\User;
 
 /**
  * UserCommunity
@@ -25,7 +25,7 @@ class UserCommunity
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="Van\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User\User")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
@@ -91,11 +91,11 @@ class UserCommunity
     /**
      * Set user
      *
-     * @param \Van\UserBundle\Entity\User $user
+     * @param User $user
      *
      * @return UserCommunity
      */
-    public function setUser(\Van\UserBundle\Entity\User $user)
+    public function setUser(User $user)
     {
         $this->user = $user;
 
@@ -105,7 +105,7 @@ class UserCommunity
     /**
      * Get user
      *
-     * @return \Van\UserBundle\Entity\User
+     * @return User
      */
     public function getUser()
     {

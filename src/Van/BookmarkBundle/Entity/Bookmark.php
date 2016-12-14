@@ -2,6 +2,8 @@
 
 namespace Van\BookmarkBundle\Entity;
 
+use AppBundle\Entity\Core\Scope;
+use AppBundle\Entity\User\User;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,7 +24,7 @@ class Bookmark
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Van\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User\User")
      * @ORM\JoinColumn(name="user_id", nullable=false)
      */
     protected $user;
@@ -34,7 +36,7 @@ class Bookmark
     protected $category;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Scope")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Core\Scope")
      * @ORM\JoinColumn(name="scope_id", nullable=false)
      */
     protected $scope;
@@ -158,11 +160,11 @@ class Bookmark
     /**
      * Set user
      *
-     * @param \Van\UserBundle\Entity\User $user
+     * @param User $user
      *
      * @return Bookmark
      */
-    public function setUser(\Van\UserBundle\Entity\User $user)
+    public function setUser(User $user)
     {
         $this->user = $user;
 
@@ -172,7 +174,7 @@ class Bookmark
     /**
      * Get user
      *
-     * @return \Van\UserBundle\Entity\User
+     * @return User
      */
     public function getUser()
     {
@@ -207,11 +209,11 @@ class Bookmark
     /**
      * Set scope
      *
-     * @param \AppBundle\Entity\Scope $scope
+     * @param Scope $scope
      *
      * @return Bookmark
      */
-    public function setScope(\AppBundle\Entity\Scope $scope)
+    public function setScope(Scope $scope)
     {
         $this->scope = $scope;
 
@@ -221,7 +223,7 @@ class Bookmark
     /**
      * Get scope
      *
-     * @return \AppBundle\Entity\Scope
+     * @return Scope
      */
     public function getScope()
     {

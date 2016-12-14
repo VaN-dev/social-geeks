@@ -3,7 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Van\UserBundle\Entity\User;
+use AppBundle\Entity\User\User;
 
 /**
  * Community
@@ -32,7 +32,7 @@ class Community
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="Van\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User\User")
      * @ORM\JoinColumn(name="created_by")
      */
     private $createdBy;
@@ -144,11 +144,11 @@ class Community
     /**
      * Set createdBy
      *
-     * @param \Van\UserBundle\Entity\User $createdBy
+     * @param User $createdBy
      *
      * @return Community
      */
-    public function setCreatedBy(\Van\UserBundle\Entity\User $createdBy = null)
+    public function setCreatedBy(User $createdBy = null)
     {
         $this->createdBy = $createdBy;
 
@@ -158,7 +158,7 @@ class Community
     /**
      * Get createdBy
      *
-     * @return \Van\UserBundle\Entity\User
+     * @return User
      */
     public function getCreatedBy()
     {

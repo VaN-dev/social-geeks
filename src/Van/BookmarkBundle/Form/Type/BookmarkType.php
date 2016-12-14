@@ -19,11 +19,13 @@ class BookmarkType extends AbstractType
             ->add('url', 'text')
             ->add('category', 'entity', [
                 'label' => 'Parent category',
-                'class' => 'Van\BookmarkBundle\Entity\Category',
+                'class' => 'Van\BookmarkBundle\Entity\Category'/**
+ * Description of LoadPermissionsData
+ */,
                 'property' => 'name',
             ])
             ->add('scope', 'entity', [
-                'class' => 'AppBundle\Entity\Scope',
+                'class' => 'AppBundle\Entity\Core\Scope',
                 'property' => 'name',
             ])
         ;

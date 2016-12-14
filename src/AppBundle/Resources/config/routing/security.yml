@@ -1,0 +1,17 @@
+app.security.login:
+    path:       /login
+    defaults:   { _controller: "AppBundle:Security/Default:login" }
+
+app.security.login_check:
+    path:       /login_check
+
+logout:
+    path:       /logout
+
+van_security_lost_password:
+    path:       /lost-password
+    defaults:   { _controller: "AppBundle:Security/Default:passwordRetrieval" }
+
+van_security_reset_password:
+    path:     /reset-password
+    defaults: { _controller: "AppBundle:Security/Default:resetPassword" }

@@ -1,0 +1,17 @@
+{{ form_start(form) }}
+    {{ form_widget(form.content, {"attr": {"class": "form-control"}}) }}
+{{ form_end(form) }}
+
+{% for comment in comments %}
+    <div class="feed-item feed-item-comment">
+        <div class="comment-content">
+            <a href="#">{{ comment.user.firstname ~" "~ comment.user.lastname }}</a>: {{ comment.content }}
+        </div>
+        <div class="feed-actions comment-actions">
+            <a class="pull-left" href="{{ path("app.feed.post_like", {"id": comment.id}) }}"><i class="fa fa-thumbs-up"></i> {{ comment.likes }}</a>
+            {#<a class="pull-left load-comments-trigger" href="#" data-post-id="{{ comment.id }}"><i class="fa fa-comment-o"></i> {{ comment.comments | length }}</a>#}
+
+            <a class="pull-right" href="javascript:;"><i class="fa fa-clock-o"></i> {{ comment.createdAt | date("d/m/Y H:i") }}</a>
+        </div> <!-- /.feed-actions -->
+    </div>
+{% endfor %}

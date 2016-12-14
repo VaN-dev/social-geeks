@@ -35,7 +35,7 @@ class CommunityController extends Controller
 
             $request->getSession()->getFlashBag()->add("success", "Community successfully added.");
 
-            return new RedirectResponse($this->generateUrl("van_user_profile"));
+            return new RedirectResponse($this->generateUrl("app.user.profile"));
         }
         
         return $this->render("AppBundle:Community:create.html.twig", [
@@ -108,7 +108,7 @@ class CommunityController extends Controller
 
         $request->getSession()->getFlashBag()->add("success", "Community successfully joined.");
 
-        return new RedirectResponse($this->generateUrl("van_user_profile"));
+        return new RedirectResponse($this->generateUrl("app.user.profile"));
     }
 
     /**
@@ -127,6 +127,6 @@ class CommunityController extends Controller
 
         $request->getSession()->getFlashBag()->add("success", "Community successfully left.");
 
-        return new RedirectResponse($this->generateUrl("van_user_profile"));
+        return new RedirectResponse($this->generateUrl("app.user.profile"));
     }
 }

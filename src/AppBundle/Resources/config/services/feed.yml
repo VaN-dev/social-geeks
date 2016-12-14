@@ -1,0 +1,22 @@
+services:
+    app.feed.form.type.comment:
+        class: AppBundle\Form\Type\Feed\CommentType
+        arguments:
+            - "@doctrine.orm.default_entity_manager"
+        tags:
+            - { name: form.type }
+
+    app.feed.post_parser.default:
+        class: AppBundle\Service\Feed\PostParser
+        arguments:
+            - "@app.feed.post_urifier.default"
+
+    app.feed.post_urifier.default:
+        class: AppBundle\Service\Feed\PostUrifier
+
+    van_feed.listener.post:
+        class: AppBundle\EventListener\Feed\PostListener
+        arguments:
+            - "@app.feed.post_parser.default"
+        tags:
+            - { name: kernel.event_listener, event: van_feed.pre_post_inserted, method: prePostInserted }

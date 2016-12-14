@@ -3,11 +3,12 @@
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Van\FeedBundle\Entity\Post;
-use Van\FeedBundle\Form\Type\PostType;
 
+/**
+ * Class ProgrammingController
+ * @package AppBundle\Controller
+ */
 class ProgrammingController extends Controller
 {
     /**

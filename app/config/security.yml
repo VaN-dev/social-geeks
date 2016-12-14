@@ -2,14 +2,14 @@
 # http://symfony.com/doc/current/book/security.html
 security:
     encoders:
-        Van\UserBundle\Entity\User:
-            id: van_security.password_encoder
+        AppBundle\Entity\User\User:
+            id: app.security.password_encoder
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         main:
             entity:
-                class: Van\UserBundle\Entity\User
+                class: AppBundle\Entity\User\User
                 property: username
 
     firewalls:

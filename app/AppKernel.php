@@ -20,10 +20,7 @@ class AppKernel extends Kernel
             new \JMS\SerializerBundle\JMSSerializerBundle(),
 
             new AppBundle\AppBundle(),
-            new Van\UserBundle\VanUserBundle(),
-            new Van\SecurityBundle\VanSecurityBundle(),
             new Van\BookmarkBundle\VanBookmarkBundle(),
-            new Van\FeedBundle\VanFeedBundle(),
             new ApiBundle\ApiBundle(),
         ];
 
@@ -32,6 +29,7 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
         }
 
         return $bundles;
