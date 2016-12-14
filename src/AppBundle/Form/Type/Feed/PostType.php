@@ -2,11 +2,15 @@
 
 namespace AppBundle\Form\Type\Feed;
 
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use AppBundle\Form\Type\Core\ScopeType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class PostType
+ * @package AppBundle\Form\Type\Feed
+ */
 class PostType extends AbstractType
 {
     /**
@@ -21,10 +25,7 @@ class PostType extends AbstractType
                     'placeholder' => 'Share something with the community...',
                 ],
             ])
-            ->add('scope', EntityType::class, [
-                'class' => 'AppBundle\Entity\Core\Scope',
-                'property' => 'name',
-            ])
+            ->add('scope', ScopeType::class)
         ;
     }
 
