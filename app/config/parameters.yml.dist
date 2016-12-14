@@ -4,7 +4,7 @@
 parameters:
     database_host:     127.0.0.1
     database_port:     ~
-    database_name:     symfony
+    database_name:     social-geeks
     database_user:     root
     database_password: ~
     # You should uncomment this if you want use pdo_sqlite
@@ -18,6 +18,6 @@ parameters:
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
 
-    ruby.bin: 'D:\Windows\Ruby22-x64\bin\ruby.exe'
-    sass.bin: 'D:\Windows\Ruby22-x64\bin\sass'
-    compass.bin: 'D:/Windows/Ruby22-x64/bin/compass'
+    sass.bin: /usr/bin/sass
+    compass.bin: /usr/bin/compass
+    ruby.bin: /usr/bin/ruby
