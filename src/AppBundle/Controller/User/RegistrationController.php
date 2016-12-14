@@ -44,8 +44,8 @@ class RegistrationController extends Controller
                 $user->getRoles()
             );
 
-            $this->container->get('security.token_storage')->setToken($unauthenticatedToken);
-            $event = new InteractiveLoginEvent($this->get("request"), $unauthenticatedToken);
+            $this->get('security.token_storage')->setToken($unauthenticatedToken);
+            $event = new InteractiveLoginEvent($request, $unauthenticatedToken);
             $this->get("event_dispatcher")->dispatch("security.interactive_login", $event);
             $request->getSession()->set('_security_'.$firewall, serialize($unauthenticatedToken));
             $request->getSession()->save();
