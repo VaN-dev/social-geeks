@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Entity\Community;
 
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\User\User;
@@ -9,7 +9,7 @@ use AppBundle\Entity\User\User;
  * Community
  *
  * @ORM\Table(name="community")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\CommunityRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Community\CommunityRepository")
  */
 class Community
 {
@@ -25,7 +25,7 @@ class Community
     /**
      * @var Community
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\UserCommunity", mappedBy="community")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Community\UserCommunity", mappedBy="community")
      */
     private $users;
 
@@ -168,11 +168,11 @@ class Community
     /**
      * Add user
      *
-     * @param \AppBundle\Entity\UserCommunity $user
+     * @param UserCommunity $user
      *
      * @return Community
      */
-    public function addUser(\AppBundle\Entity\UserCommunity $user)
+    public function addUser(UserCommunity $user)
     {
         $this->users[] = $user;
 
@@ -182,9 +182,9 @@ class Community
     /**
      * Remove user
      *
-     * @param \AppBundle\Entity\UserCommunity $user
+     * @param UserCommunity $user
      */
-    public function removeUser(\AppBundle\Entity\UserCommunity $user)
+    public function removeUser(UserCommunity $user)
     {
         $this->users->removeElement($user);
     }

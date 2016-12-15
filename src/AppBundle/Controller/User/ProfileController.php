@@ -16,7 +16,7 @@ class ProfileController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $communities = $em->getRepository("AppBundle:UserCommunity")->findBy(["user" => $this->getUser()]);
+        $communities = $em->getRepository('AppBundle:Community\UserCommunity')->findBy(["user" => $this->getUser()]);
 
         return $this->render('AppBundle:User/Profile:index.html.twig', [
             "communities" => $communities,

@@ -1,15 +1,15 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Programming;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Class ProgrammingController
+ * Class DefaultController
  * @package AppBundle\Controller
  */
-class ProgrammingController extends Controller
+class DefaultController extends Controller
 {
     /**
      * @param Request $request
@@ -17,9 +17,6 @@ class ProgrammingController extends Controller
      */
     public function indexAction(Request $request)
     {
-
-
-        
         return $this->render('AppBundle:Programming:index.html.twig');
     }
 }

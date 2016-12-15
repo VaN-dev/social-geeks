@@ -71,11 +71,15 @@
 <script type="text/javascript" src="{{ asset('bundles/app/cleanzone/js/cleanzone.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/app/cleanzone/lib/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/app/cleanzone/lib/jquery.niftymodals/js/jquery.modalEffects.js') }}"></script>
+
+{% block javascripts %}
+{% endblock javascripts %}
+
 <script type="text/javascript">
 $(document).ready(function(){
     //initialize the javascript
     App.init();
-//    App.treeView();
+    App.treeView();
     $('.md-trigger').modalEffects();
 });
 </script>

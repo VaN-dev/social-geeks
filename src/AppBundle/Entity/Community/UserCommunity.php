@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Entity\Community;
 
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\User\User;
@@ -9,7 +9,7 @@ use AppBundle\Entity\User\User;
  * UserCommunity
  *
  * @ORM\Table(name="user_community")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\UserCommunityRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\Community\UserCommunityRepository")
  */
 class UserCommunity
 {
@@ -33,7 +33,7 @@ class UserCommunity
     /**
      * @var Community
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Community", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Community\Community", inversedBy="users")
      * @ORM\JoinColumn(nullable=false)
      */
     private $community;
@@ -115,11 +115,11 @@ class UserCommunity
     /**
      * Set community
      *
-     * @param \AppBundle\Entity\Community $community
+     * @param Community $community
      *
      * @return UserCommunity
      */
-    public function setCommunity(\AppBundle\Entity\Community $community)
+    public function setCommunity(Community $community)
     {
         $this->community = $community;
 
@@ -129,7 +129,7 @@ class UserCommunity
     /**
      * Get community
      *
-     * @return \AppBundle\Entity\Community
+     * @return Community
      */
     public function getCommunity()
     {

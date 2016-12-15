@@ -1,21 +1,20 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Community;
 
-
+use AppBundle\Form\Type\Community\CommunitySearchType;
+use AppBundle\Form\Type\Community\CommunityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Entity\Community;
-use AppBundle\Entity\UserCommunity;
-use AppBundle\Form\Type\CommunityType;
-use AppBundle\Form\Type\CommunitySearchType;
+use AppBundle\Entity\Community\Community;
+use AppBundle\Entity\Community\UserCommunity;
 
 /**
  * Class CommunityController
- * @package AppBundle\Controller
+ * @package AppBundle\Community\Controller
  */
-class CommunityController extends Controller
+class DefaultController extends Controller
 {
     public function createAction(Request $request)
     {
@@ -52,7 +51,7 @@ class CommunityController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         
-        $community = $em->getRepository("AppBundle:Community")->find($id);
+        $community = $em->getRepository('AppBundle:Community\Community')->find($id);
         
         return $this->render("AppBundle:Community:show.html.twig", [
             "community" => $community,
@@ -68,13 +67,13 @@ class CommunityController extends Controller
         $em = $this->getDoctrine()->getManager();
         $communities = null;
 
-        $form = $this->createForm(new CommunitySearchType(), []);
+        $form = $this->createForm(CommunitySearchType::class, []);
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
                 $data = $form->getData();
 
-                $communities = $em->getRepository("AppBundle:Community")->search($data["pattern"]);
+                $communities = $em->getRepository('AppBundle:Community\Community')->search($data["pattern"]);
             } else {
                 die('ko');
             }
@@ -95,7 +94,7 @@ class CommunityController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $community = $em->getRepository("AppBundle:Community")->find($id);
+        $community = $em->getRepository('AppBundle:Community\Community')->find($id);
 
         $userCommunity = new UserCommunity();
         $userCommunity
@@ -120,7 +119,7 @@ class CommunityController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $userCommunity = $em->getRepository("AppBundle:UserCommunity")->find($id);
+        $userCommunity = $em->getRepository('AppBundle:Community\UserCommunity')->find($id);
 
         $em->remove($userCommunity);
         $em->flush();
