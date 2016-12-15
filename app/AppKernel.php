@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             
             new \JMS\SerializerBundle\JMSSerializerBundle(),
+            new EightPoints\Bundle\GuzzleBundle\GuzzleBundle(),
 
             new AppBundle\AppBundle(),
             new ApiBundle\ApiBundle(),

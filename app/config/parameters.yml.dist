@@ -21,3 +21,8 @@ parameters:
     sass.bin: /usr/bin/sass
     compass.bin: /usr/bin/compass
     ruby.bin: /usr/bin/ruby
+
+    stackoverflow_api.url: https://api.stackexchange.com/2.2
+    stackoverflow_api.client_id: ~
+    stackoverflow_api.client_secret: ~
+    stackoverflow_api.key: ~

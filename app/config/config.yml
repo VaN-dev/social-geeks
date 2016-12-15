@@ -83,3 +83,35 @@ assetic:
             bin: %sass.bin%
         compass:
             bin: %compass.bin%
+
+# Guzzle
+guzzle:
+    # (de)activate logging/profiler; default: %kernel.debug%
+    logging: true
+
+    clients:
+        stackoverflow:
+            base_url: "%stackoverflow_api.url%"
+
+            # custom headers (@deprecated, will be removed in v6; new: "headers" in options (see below))
+            headers:
+                Accept: "application/json"
+
+            # guzzle client options (full description here: https://guzzle.readthedocs.org/en/latest/request-options.html)
+            # NOTE: "headers" option is not accepted here as it is provided as described above.
+            options:
+                auth:
+                    - "%stackoverflow_api.client_id%"     # login
+                    - "%stackoverflow_api.client_secret%" # password
+
+#                headers:
+#                    Accept: "application/json"
+
+                timeout: 30
+
+            # plugin settings
+#            plugin:
+#                wsse:
+#                    username:   "acme"
+#                    password:   "pa55w0rd"
+#                    created_at: "-10 seconds" # optional
