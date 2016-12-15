@@ -12,7 +12,7 @@
 
         {% if leaf.children is defined %}
             <ul class="nav nav-list tree">
-                {% include "@VanBookmark/Default/tree-view.html.twig" with {'tree': leaf.children} %}
+                {% include '@App/Bookmark/Default/tree-view.html.twig' with {'tree': leaf.children} %}
             </ul>
         {% endif %}
     </li>

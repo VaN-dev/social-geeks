@@ -18,7 +18,7 @@ class DefaultTreeBuilder implements TreeBuilderInterface
         $tree = [];
 
         foreach ($collection as $category) {
-            $tree = $this->buildRow($tree, $category);
+            $tree[] = $this->buildRow($tree, $category);
         }
 
         return $tree;
@@ -45,17 +45,17 @@ class DefaultTreeBuilder implements TreeBuilderInterface
 
         if (method_exists($object, "getChildren")) {
             foreach ($object->getChildren() as $category) {
-                $row["children"] = $this->buildRow($tree, $category);
+                $row["children"][] = $this->buildRow($tree, $category);
             }
         }
 
         if (method_exists($object, "getBookmarks")) {
             foreach ($object->getBookmarks() as $bookmark) {
-                $row["children"] = $this->buildRow($tree, $bookmark);
+                $row["children"][] = $this->buildRow($tree, $bookmark);
             }
         }
 
-        $tree[] = $row;
+        $tree = $row;
 
         return $tree;
     }

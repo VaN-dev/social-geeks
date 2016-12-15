@@ -24,6 +24,9 @@ class BookmarkController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $bookmark = new Bookmark();
+        $bookmark
+            ->setUser($this->getUser())
+        ;
         $form = $this->createForm(BookmarkType::class, $bookmark, [
             'action' => $this->generateUrl('van_bookmarks_insert'),
         ]);
@@ -38,6 +41,10 @@ class BookmarkController extends Controller
 
             return new RedirectResponse($this->generateUrl("van_bookmarks"));
         }
+
+//        return $this->render('AppBundle:Bookmark/Bookmark:insert.html.twig', [
+//            "form" => $form->createView(),
+//        ]);
     }
 
     /**
@@ -62,7 +69,7 @@ class BookmarkController extends Controller
             return new RedirectResponse($this->generateUrl("van_bookmarks"));
         }
 
-        return $this->render('AppBundle:Bookmark/Default:update.html.twig', [
+        return $this->render('AppBundle:Bookmark/Bookmark:update.html.twig', [
             "form" => $form->createView(),
         ]);
     }

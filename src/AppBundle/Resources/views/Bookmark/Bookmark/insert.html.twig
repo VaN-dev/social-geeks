@@ -1,0 +1,37 @@
+{% extends "@App/layout-cleanzone.html.twig" %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="page-header">
+            <h3 class="page-title">My bookmarks</h3>
+
+            <ol class="breadcrumb">
+                <li><a href="./">Dashboard</a></li>
+                <li class="active">My bookmarks</li>
+            </ol>
+        </div> <!-- /.page-header -->
+
+        <div class="row">
+
+            <div class="col-sm-12">
+
+                <div class="portlet portlet-boxed">
+
+                    <div class="portlet-body">
+
+                        <h5>Create a bookmark</h5>
+
+                        {% include 'AppBundle:Bookmark/Bookmark:form.html.twig' %}
+
+                    </div> <!-- /.portlet-body -->
+
+                </div> <!-- /.portlet -->
+
+            </div> <!-- /.col -->
+
+        </div> <!-- /.row -->
+
+    </div>
+{% endblock content %}
