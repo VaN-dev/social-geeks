@@ -1,20 +1,20 @@
-communities_create:
+app.communities.create:
     path:       /create
     defaults:   { _controller: "AppBundle:Community/Default:create" }
-communities_show:
+app.communities.show:
     path:       /{id}
     defaults:   { _controller: "AppBundle:Community/Default:show" }
     requirements:
         id: \d+
-communities_search:
+app.communities.search:
     path:       /search
     defaults:   { _controller: "AppBundle:Community/Default:search" }
-communities_join:
+app.communities.join:
     path:       /{id}/join
     defaults:   { _controller: "AppBundle:Community/Default:join" }
     requirements:
         id: \d+
-communities_leave:
+app.communities.leave:
     path:       /{id}/leave
     defaults:   { _controller: "AppBundle:Community/Default:leave" }
     requirements:

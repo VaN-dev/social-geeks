@@ -34,7 +34,7 @@ class CategoryController extends Controller
 
             $request->getSession()->getFlashBag()->add("success", "Category successfully added.");
 
-            return new RedirectResponse($this->generateUrl("van_bookmarks"));
+            return new RedirectResponse($this->generateUrl('app.bookmarks'));
         }
     }
 
@@ -57,7 +57,7 @@ class CategoryController extends Controller
 
             $request->getSession()->getFlashBag()->add("success", "Category successfully udated.");
 
-            return new RedirectResponse($this->generateUrl("van_bookmarks"));
+            return new RedirectResponse($this->generateUrl('app.bookmarks'));
         }
 
         return $this->render('AppBundle:Bookmark/Default:update.html.twig', [
@@ -80,6 +80,6 @@ class CategoryController extends Controller
 
         $request->getSession()->getFlashBag()->add("success", "Category successfully deleted.");
 
-        return new RedirectResponse($this->generateUrl("van_bookmarks"));
+        return new RedirectResponse($this->generateUrl('app.bookmarks'));
     }
 }

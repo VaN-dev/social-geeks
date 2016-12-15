@@ -8,10 +8,10 @@ app.security.login_check:
 logout:
     path:       /logout
 
-van_security_lost_password:
+app.security.lost_password:
     path:       /lost-password
     defaults:   { _controller: "AppBundle:Security/Default:passwordRetrieval" }
 
-van_security_reset_password:
+app.security.reset_password:
     path:     /reset-password
     defaults: { _controller: "AppBundle:Security/Default:resetPassword" }

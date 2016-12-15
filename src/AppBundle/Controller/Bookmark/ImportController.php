@@ -58,7 +58,7 @@ class ImportController extends Controller
 
             $request->getSession()->getFlashBag()->add("success", "Bookmarks successfully imported.");
 
-            return new RedirectResponse($this->generateUrl("van_bookmarks"));
+            return new RedirectResponse($this->generateUrl('app.bookmarks'));
         }
 
         die();

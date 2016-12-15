@@ -28,7 +28,7 @@ class BookmarkController extends Controller
             ->setUser($this->getUser())
         ;
         $form = $this->createForm(BookmarkType::class, $bookmark, [
-            'action' => $this->generateUrl('van_bookmarks_insert'),
+            'action' => $this->generateUrl('app.bookmarks.insert'),
         ]);
 
         $form->handleRequest($request);
@@ -39,7 +39,7 @@ class BookmarkController extends Controller
 
             $request->getSession()->getFlashBag()->add("success", "Bookmark successfully added.");
 
-            return new RedirectResponse($this->generateUrl("van_bookmarks"));
+            return new RedirectResponse($this->generateUrl('app.bookmarks'));
         }
 
 //        return $this->render('AppBundle:Bookmark/Bookmark:insert.html.twig', [
@@ -66,7 +66,7 @@ class BookmarkController extends Controller
 
             $request->getSession()->getFlashBag()->add("success", "Bookmark successfully udated.");
 
-            return new RedirectResponse($this->generateUrl("van_bookmarks"));
+            return new RedirectResponse($this->generateUrl('app.bookmarks'));
         }
 
         return $this->render('AppBundle:Bookmark/Bookmark:update.html.twig', [
@@ -89,6 +89,6 @@ class BookmarkController extends Controller
 
         $request->getSession()->getFlashBag()->add("success", "Bookmark successfully deleted.");
 
-        return new RedirectResponse($this->generateUrl("van_bookmarks"));
+        return new RedirectResponse($this->generateUrl('app.bookmarks'));
     }
 }

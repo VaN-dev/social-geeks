@@ -29,18 +29,18 @@ class DefaultController extends Controller
         // bookmark form
         $bookmark = new Bookmark();
         $formBookmark = $this->createForm(BookmarkType::class, $bookmark, [
-            'action' => $this->generateUrl('van_bookmarks_insert'),
+            'action' => $this->generateUrl('app.bookmarks.insert'),
         ]);
 
         // category form
         $category = new Category();
         $formCategory = $this->createForm(CategoryType::class, $category, [
-            'action' => $this->generateUrl('van_bookmarks_category_insert'),
+            'action' => $this->generateUrl('app.bookmarks.category.insert'),
         ]);
 
         // import form
         $formImport = $this->createForm(ImportType::class, [], [
-            'action' => $this->generateUrl('van_bookmarks_import'),
+            'action' => $this->generateUrl('app.bookmarks.import'),
         ]);
 
         // fetching categories, their children categories and their bookmarks
