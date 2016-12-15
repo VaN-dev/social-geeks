@@ -1,11 +1,7 @@
-api:
-    resource: "@ApiBundle/Resources/config/routing.yml"
-    prefix:   /api
-
-van_bookmark:
-    resource: "@VanBookmarkBundle/Resources/config/routing.yml"
-    prefix:   /bookmarks
-
 app:
     resource: "@AppBundle/Resources/config/routing.yml"
     prefix:   /
+
+api:
+    resource: "@ApiBundle/Resources/config/routing.yml"
+    prefix:   /api

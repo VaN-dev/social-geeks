@@ -1,0 +1,68 @@
+{% extends "@App/layout-cleanzone.html.twig" %}
+
+{% block content %}
+
+    <div class="page-head">
+        <h2>Blank Page</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">Category</a>
+            </li>
+            <li class="active">Sub Category</li>
+        </ol>
+    </div>
+    <div class="cl-mcont">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="block-flat">
+                    <div class="header">
+                        <h2 class="title">Manage my bookmarks</h2>
+                        <div class="btn-group pull-right">
+                            <button data-toggle="dropdown" class="btn btn-xs btn-tertiary dropdown-toggle" type="button" aria-expanded="true">
+                                <i class="fa fa-cogs"></i>
+                            </button>
+                            <ul role="menu" class="dropdown-menu">
+                                <li><a href="#" class="md-trigger" data-modal="form-bookmark">Create a new bookmark</a></li>
+                                <li><a href="#" class="md-trigger" data-modal="form-category">Create a new category</a></li>
+                                <li><a href="#" class="md-trigger" data-modal="form-import">Import from ..</a></li>
+                                <li><a href="#">Export to ..</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content">
+                        {% if bookmarks is not empty %}
+                            {% set default_open = true %}
+                            <ul class="nav nav-list treeview">
+                                {% include '@App/Bookmark/Default/tree-view.html.twig' with {'tree':tree, 'default_open': default_open} only %}
+                            </ul>
+                        {% else %}
+                            You have no bookmark yet.
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- modals -->
+    <div id="form-bookmark" class="md-modal colored-header custom-width md-effect-9">
+        <div class="md-content">
+            {% include '@App/Bookmark/Bookmark/form-modal.html.twig' with {"form": formBookmark} %}
+        </div>
+    </div>
+    <div id="form-category" class="md-modal colored-header custom-width md-effect-9">
+        <div class="md-content">
+            {% include '@App/Bookmark/Category/form-modal.html.twig' with {"form": formCategory} %}
+        </div>
+    </div>
+    <div id="form-import" class="md-modal colored-header custom-width md-effect-9">
+        <div class="md-content">
+            {% include '@App/Bookmark/Import/form-modal.html.twig' with {"form": formImport} %}
+        </div>
+    </div>
+{% endblock content %}

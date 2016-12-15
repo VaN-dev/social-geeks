@@ -20,7 +20,6 @@ class AppKernel extends Kernel
             new \JMS\SerializerBundle\JMSSerializerBundle(),
 
             new AppBundle\AppBundle(),
-            new Van\BookmarkBundle\VanBookmarkBundle(),
             new ApiBundle\ApiBundle(),
         ];
 

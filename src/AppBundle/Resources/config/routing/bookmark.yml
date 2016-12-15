@@ -1,0 +1,38 @@
+van_bookmarks:
+    path:     /
+    defaults: { _controller: AppBundle:Bookmark/Default:index }
+
+# Bookmark
+van_bookmarks_insert:
+    path:     /insert
+    defaults: { _controller: AppBundle:Bookmark/Bookmark:insert }
+van_bookmarks_update:
+    path:     /{id}/update
+    defaults: { _controller: AppBundle:Bookmark/Bookmark:update }
+    requirements:
+        id: \d+
+van_bookmarks_delete:
+    path:     /{id}/delete
+    defaults: { _controller: AppBundle:Bookmark/Bookmark:delete }
+    requirements:
+        id: \d+
+
+# Category
+van_bookmarks_category_insert:
+    path:     /category/insert
+    defaults: { _controller: AppBundle:Bookmark/Category:insert }
+van_bookmarks_category_update:
+    path:     /category/{id}/update
+    defaults: { _controller: AppBundle:Bookmark/Category:update }
+    requirements:
+        id: \d+
+van_bookmarks_category_delete:
+    path:     /category/{id}/delete
+    defaults: { _controller: AppBundle:Bookmark/Category:delete }
+    requirements:
+        id: \d+
+
+# Import
+van_bookmarks_import:
+    path:     /import
+    defaults: { _controller: AppBundle:Bookmark/Import:import }

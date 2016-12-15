@@ -1,0 +1,9 @@
+services:
+    app.tree_builder.default:
+        class: AppBundle\Service\TreeBuilder\DefaultTreeBuilder
+
+    app.parser.bookmark_parser:
+        class: AppBundle\Service\Bookmark\BookmarkParser
+
+    app.parser.netscape_bookmark_parser:
+        class: AppBundle\Service\Bookmark\NetscapeBookmarkParser

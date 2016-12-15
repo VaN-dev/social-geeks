@@ -1,3 +1,4 @@
 imports:
     - { resource: services/security.yml }
     - { resource: services/feed.yml }
+    - { resource: services/bookmark.yml }

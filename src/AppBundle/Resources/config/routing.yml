@@ -7,6 +7,10 @@ app.security:
 app.feed:
     resource: '@AppBundle/Resources/config/routing/feed.yml'
 
+app.bookmark:
+    resource: '@AppBundle/Resources/config/routing/bookmark.yml'
+    prefix:   'bookmarks'
+
 index:
     path:       /
     defaults:   { _controller: "AppBundle:Default:index" }
