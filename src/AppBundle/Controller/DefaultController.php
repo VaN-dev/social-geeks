@@ -26,10 +26,17 @@ class DefaultController extends Controller
             "action" => $this->generateUrl("app.feed.post_save"),
         ]);
 
+        $client   = $this->get('guzzle.client.stackoverflow');
+        $response = $client->get('/questions?pagesize=10&order=desc&sort=activity&tagged=symfony2&site=stackoverflow');
+        $questions = json_decode(htmlspecialchars_decode($response->getBody(), ENT_QUOTES));
+
+        dump($questions->items);
+
         // replace this example code with whatever you need
         return $this->render('@App/Default/index.html.twig', [
             "posts" => $posts,
             "form" => $form->createView(),
+            "questions" => $questions->items,
         ]);
     }
 }

@@ -16,7 +16,7 @@
     </div>
     <div class="cl-mcont">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-6">
 
                 <div class="block-flat">
                     <div class="header">
@@ -65,7 +65,19 @@
                 </div>
 
             </div>
-            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="block-flat">
+                    <div class="header">
+                            <h2 class="title">Stackoverflow</h2>
+                        </div>
+                        <div class="content">
+                            {% for question in questions %}
+                                <h3><a href="{{ question.link }}" target="_blank">{{ question.title }}</a></h3>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
