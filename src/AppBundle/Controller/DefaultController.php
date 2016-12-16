@@ -26,17 +26,26 @@ class DefaultController extends Controller
             "action" => $this->generateUrl("app.feed.post_save"),
         ]);
 
-        $client   = $this->get('guzzle.client.stackoverflow');
-        $response = $client->get('/questions?pagesize=10&order=desc&sort=activity&tagged=symfony2&site=stackoverflow');
-        $questions = json_decode(htmlspecialchars_decode($response->getBody(), ENT_QUOTES));
+        $stackoverflowConfig = $em->getRepository('AppBundle:ApiConfig\StackoverflowConfig')->findOneBy(['user' => $this->getUser(), 'status' => true]);
+        $stackoverflow = null;
+        if (null !== $stackoverflowConfig) {
+            $client   = $this->get('guzzle.client.stackoverflow');
+            $response = $client->get('/questions?pagesize=10&order=desc&sort=activity&tagged=symfony2&site=stackoverflow');
+            $data = json_decode(htmlspecialchars_decode($response->getBody(), ENT_QUOTES));
+            $data = json_decode($response->getBody());
+            $stackoverflow['questions'] = $data->items;
 
-        dump($questions->items);
-
+            if (true === $stackoverflowConfig->getSelfQuestions() && null !== $stackoverflowConfig->getRemoteId()) {
+                $response = $client->get('/users/'. $stackoverflowConfig->getRemoteId() .'/questions?pagesize=10&order=desc&sort=activity&site=stackoverflow');
+                $data = json_decode($response->getBody());
+                $stackoverflow['selfQuestions'] = $data->items;
+            }
+        }
         // replace this example code with whatever you need
         return $this->render('@App/Default/index.html.twig', [
             "posts" => $posts,
             "form" => $form->createView(),
-            "questions" => $questions->items,
+            "stackoverflow" => $stackoverflow,
         ]);
     }
 }

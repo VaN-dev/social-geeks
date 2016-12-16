@@ -65,19 +65,61 @@
                 </div>
 
             </div>
-            <div class="col-md-6">
-                <div class="block-flat">
-                    <div class="header">
-                            <h2 class="title">Stackoverflow</h2>
-                        </div>
-                        <div class="content">
-                            {% for question in questions %}
-                                <h3><a href="{{ question.link }}" target="_blank">{{ question.title }}</a></h3>
-                            {% endfor %}
+
+            {% if stackoverflow is not null %}
+                <div class="col-md-6">
+                    <div class="block-flat">
+                        <div class="header">
+                                <h2 class="title">Stackoverflow</h2>
+                            </div>
+                            <div class="content">
+                                {% if stackoverflow.questions is defined %}
+                                    <h3>Questions you might be interested in</h3>
+                                    <table class="no-border">
+                                        <thead class="no-border">
+                                        <tr>
+                                            <th>Question</th>
+                                            <th>Answers</th>
+                                            <th>Tags</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for question in stackoverflow.questions %}
+                                        <tr>
+                                            <td><a href="{{ question.link }}" target="_blank">{{ question.title }}</a></td>
+                                            <td>{{ question.answer_count }}</td>
+                                            <td>{{ question.tags | join(', ') }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                {% endif %}
+                                {% if stackoverflow.selfQuestions is defined %}
+                                    <h3>Your questions</h3>
+                                    <table class="no-border">
+                                        <thead class="no-border">
+                                        <tr>
+                                            <th>Question</th>
+                                            <th>Answers</th>
+                                            <th>Tags</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for question in stackoverflow.selfQuestions %}
+                                            <tr>
+                                                <td><a href="{{ question.link }}" target="_blank">{{ question.title }}</a></td>
+                                                <td>{{ question.answer_count }}</td>
+                                                <td>{{ question.tags | join(', ') }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            {% endif %}
         </div>
     </div>
 

@@ -22,3 +22,7 @@ app.programming:
 app.community:
     resource: '@AppBundle/Resources/config/routing/community.yml'
     prefix:   'communities'
+
+app.api_config:
+    resource: '@AppBundle/Resources/config/routing/api_config.yml'
+    prefix:   'api-configs'

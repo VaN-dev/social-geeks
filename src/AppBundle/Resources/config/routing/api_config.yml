@@ -1,0 +1,3 @@
+app.api_config.save:
+    path:       /stackoverflow-config/save
+    defaults:   { _controller: "AppBundle:ApiConfig/StackoverflowConfig:save" }
